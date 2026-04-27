@@ -257,7 +257,7 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
     if (p >= 100) return { cls: 'g',  label: '목표 달성',   barColor: '#16a34a' };
     if (p >= 90)  return { cls: 'd',  label: '방어 성공',   barColor: '#3b82f6' };
     if (p >= 80)  return { cls: 'w',  label: '경고',        barColor: '#f59e0b' };
-    return        { cls: 'r',  label: '실패',        barColor: '#ef4444' };
+    return        { cls: 'r',  label: '위험',        barColor: '#ef4444' };
   }
   const G = grade(pct);
   const onTrack = pct >= 80;  // 경고 이상이면 알림 안 띄움
