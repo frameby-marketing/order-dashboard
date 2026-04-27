@@ -245,7 +245,7 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
     if (p >= 100) return { cls: 'g',  label: '목표 달성',   barColor: '#16a34a' };
     if (p >= 90)  return { cls: 'd',  label: '방어 성공',   barColor: '#3b82f6' };
     if (p >= 80)  return { cls: 'w',  label: '경고',        barColor: '#f59e0b' };
-    return        { cls: 'r',  label: '위험',        barColor: '#ef4444' };
+    return        { cls: 'r',  label: '실패',        barColor: '#ef4444' };
   }
   const G = grade(pct);
   const onTrack = pct >= 80;  // 경고 이상이면 알림 안 띄움
@@ -257,6 +257,9 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
 
   /* 예산 달성률 기반 조정 발주비 = 월말 예상 매출 × 18% */
   const adjBudget   = Math.round(projected * 0.18);
+
+  /* 발주비 비중 = 누적 지출액 ÷ 월말 예상 매출 × 100 */
+  const spendRatio  = projected > 0 ? (spentBudget / projected * 100) : 0;
 
   /* 추가 가용 발주비 = 조정 발주비 - 누적 지출액 (음수면 초과) */
   const extraBudget = adjBudget - spentBudget;
@@ -356,11 +359,12 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
           <div class="c-sub">월말 예상 매출 × 18%</div>
         </div>
 
-        <!-- 카드3: 월말 예상 매출 -->
+        <!-- 카드3: 현재 기준 발주비 비중 -->
         <div class="card">
-          <div class="c-lbl">월말 예상 매출</div>
-          <div class="c-val ${projected >= targetMonthly ? '' : 'r'}">${f(projected)}</div>
-          <div class="c-sub">목표 대비 ${projected >= targetMonthly ? '+' : '-'}${f(Math.abs(projected - targetMonthly))}</div>
+          <div class="c-lbl">현재 기준 발주비 비중</div>
+          <div class="c-val ${spendRatio > 18 ? 'r' : ''}">${spendRatio.toFixed(1)}%</div>
+          <div class="c-tag ${spendRatio > 18 ? 'r' : 'g'}">${spendRatio > 18 ? '위험 (18% 초과)' : '안전 (18% 이하)'}</div>
+          <div class="c-sub">누적지출 ÷ 월말 예상</div>
         </div>
 
         <!-- 카드4: 추가 가용 발주비 = 조정 발주비 - 누적 지출액 -->
