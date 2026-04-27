@@ -1,75 +1,571 @@
 <!DOCTYPE html>
-<!-- saved from url=(0161)https://docs.google.com/spreadsheets/d/e/2PACX-1vS6FTXlyaNQ8-jLn-DBn5ofzTyrWwyDvv50AVnkXL7rUiJLKqA1-f2cn0Oays8np439x_1QcJkmvp85/pubhtml?gid=751357922&single=true -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="google" content="notranslate"><meta name="viewport" content="target-densitydpi=device-dpi,user-scalable=1,minimum-scale=1,maximum-scale=2.5,initial-scale=1,width=device-width"><meta http-equiv="X-UA-Compatible" content="IE=edge;"><meta name="referrer" content="strict-origin-when-cross-origin"><title>품목별 재고 - Google Drive</title><link rel="shortcut icon" href="https://ssl.gstatic.com/docs/spreadsheets/spreadsheets_2023q4.ico"><meta property="og:title" content="품목별 재고"><meta property="og:type" content="article"><meta property="og:site_name" content="Google Docs"><meta property="og:url" content="https://docs.google.com/spreadsheets/d/e/2PACX-1vS6FTXlyaNQ8-jLn-DBn5ofzTyrWwyDvv50AVnkXL7rUiJLKqA1-f2cn0Oays8np439x_1QcJkmvp85/pubhtml?gid=751357922&amp;single=true&amp;usp=embed_facebook"><link href="./품목별 재고 - Google Drive_files/930133046-waffle_k_ltr.css" rel="stylesheet" nonce=""><style nonce="">
-        html { overflow: visible; }
-        html, body {
-          height: 100%;
-        }
-        body {
-          display: flex;
-          flex-direction: column;
-        }
-        #sheets-viewport {
-          display: flex;
-          flex: 1;
-          flex-direction: column;
-          overflow: auto;
-        }
-        #sheets-viewport.widget-viewport { overflow: hidden; }
-        .grid-container { overflow: visible; background: white;}
-        .grid-table-container { overflow: visible; }
-        #top-bar {
-          margin: 0;
-          overflow: hidden;
-        }
-        #top-bar {
-          border-bottom: 1px solid #ccc;
-          padding: 6px 6px 0;
-        }
-        #doc-title { padding-bottom: 5px; }
-        #doc-title .name { font-size: 15px; }
-        #sheet-menu {
-          font-size: 13px;
-          margin: 6px 0 0;
-          padding: 0 0 5px;
-        }
-        #sheet-menu li {
-          display: inline;
-          list-style-type: none;
-          margin: 0;
-          padding: 5px 8px;
-        }
-        #sheet-menu li.active {
-          background-color: #fff;
-          font-weight: bold;
-          border: 1px solid #999;
-        }
-        #top-bar #sheet-menu li.active {
-          border-bottom: 0;
-        }
-        #sheet-menu a, #sheet-menu a:visited { color: #07c; }
-        #footer {
-          background: #f0f0f0;
-          border-top: 1px #ccc solid;
-          border-bottom: 1px #ccc solid;
-          font-size: 13;
-          padding: 10px 10px;
-        }
-        .dash {
-          padding: 0 6px;
-        }
-        </style>
-<link href="./품목별 재고 - Google Drive_files/2346083343-trix_widget_ltr.css" type="text/css" rel="stylesheet"><script src="./품목별 재고 - Google Drive_files/1604287834-trix_widgets.js" nonce=""></script><script nonce="">(function(){'use strict';/*
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>발주 관리 대시보드</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+:root {
+  --bg: #0f1117;
+  --bg2: #181c27;
+  --bg3: #1e2233;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #e8eaf0;
+  --text2: #8b90a0;
+  --text3: #555a6b;
+  --accent: #4f8fff;
+  --accent2: #2dd4a0;
+  --warn: #f0a944;
+  --danger: #f05555;
+  --good: #2dd4a0;
+  --mono: 'IBM Plex Mono', monospace;
+  --sans: 'IBM Plex Sans KR', sans-serif;
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 14px; line-height: 1.5; }
+body { min-height: 100vh; padding: 0; }
 
- Copyright The Closure Library Authors.
- SPDX-License-Identifier: Apache-2.0
-*/
-var d=this||self;function e(a,f){a=a.split(".");for(var b=d,c;a.length&&(c=a.shift());)a.length||f===void 0?b[c]&&b[c]!==Object.prototype[c]?b=b[c]:b=b[c]={}:b[c]=f};var g=new function(){this.g=null};e("initialize",function(){var a=window.location.href.replace("?sle=true&","?");a=a.replace("?sle=true","");a=a.replace("&sle=true&","&");a=a.replace("&sle=true","");window.history.replaceState(null,"",a)});
-e("switchToSheet",function(a){document.getElementById("sheet-menu")&&(g.g&&(document.getElementById("sheet-button-"+g.g).className=""),document.getElementById("sheet-button-"+a).className="active");g.g&&(document.getElementById(g.g).style.display="none");document.getElementById(a).style.display="";g.g=a;typeof posObjs==="function"&&posObjs()});}).call(this);
-</script><script nonce="">if ((!this['_getWGTPageSwitcher']) ||  false ) {if (window.navigator && window.navigator.sendBeacon) {var DOCS_hasSentJsNotLoadedError=window['DOCS_hasSentJsNotLoadedError']||false; var perfContext = '';var severityContext = DOCS_hasSentJsNotLoadedError?'&context.severity=postmortem':'&context.severity=warning';const isServiceWorkerControlled = !!(window.origin !== 'null' && navigator.serviceWorker && navigator.serviceWorker.controller); window.navigator.sendBeacon('\/spreadsheets\/u\/0\/jserror?jobset\x3dprod\x26error\x3dJS+binary+load+failure&context.functionName=_getWGTPageSwitcher' + '&context.serviceWorkerControlled=' + isServiceWorkerControlled + '\x26context.actionName\x3dPublishedHtmlView' + severityContext + perfContext); DOCS_hasSentJsNotLoadedError=true;}(window.enterCoreJsErrorDialog ? enterCoreJsErrorDialog() : (window.location.href = 'https:\/\/support.google.com\/accounts\/answer\/32050'))}
-        function init() {
-        var _optPageSwitcher;
-        var items = [];items.push({name: "발주판단", pageUrl: "https:\/\/docs.google.com\/spreadsheets\/u\/0\/d\/e\/2PACX-1vS6FTXlyaNQ8-jLn-DBn5ofzTyrWwyDvv50AVnkXL7rUiJLKqA1-f2cn0Oays8np439x_1QcJkmvp85\/pubhtml\/sheet?headers\x3dfalse&gid=751357922", gid: "751357922",initialSheet: true});var sheetsViewport = document.getElementById('sheets-viewport'); _optPageSwitcher = _getWGTPageSwitcher(window, document, sheetsViewport, 0, 0, "100%", "100%", items);
-        initialize();
-        }
-        </script><script data-id="_gd" nonce="">window.WIZ_global_data = {"K1cgmc":"%.@.[null,null,null,[1,1,[1777082802,22106000],4],null,0]]","TSDtV":"%.@.[[null,[[45736426,null,null,0.5,null,null,\"AtjTse\"],[45759550,null,false,null,null,null,\"ipHXZe\"],[45765567,null,false,null,null,null,\"Gu5Dg\"],[45755088,null,true,null,null,null,\"fzPMYc\"],[45776074,null,false,null,null,null,\"H0kCgf\"],[45681910,null,true,null,null,null,\"OKXfNb\"],[45702908,0,null,null,null,null,\"YUmR1e\"],[45662509,null,true,null,null,null,\"fLCtnf\"],[45734741,null,true,null,null,null,\"gWu1Ue\"],[45736423,null,false,null,null,null,\"KdGYpb\"],[45762085,null,false,null,null,null,\"h6H74b\"],[45657263,null,false,null,null,null,\"ByEExb\"],[45769604,null,false,null,null,null,\"h14wf\"],[45744490,null,false,null,null,null,\"luHWB\"],[45760386,null,false,null,null,null,\"B22Yae\"],[45699018,null,null,null,\"hoiy8M2zL0suK1NZr2K0T7URFV3w\",null,\"evsAs\"],[45775424,null,false,null,null,null,\"ChJt5d\"],[45678214,null,null,null,\"qYGgY5L4A0suK1NZr2K0QusvQmcX\",null,\"VL579e\"],[45677726,null,false,null,null,null,\"C5oZKe\"],[45764507,null,false,null,null,null,\"En02yf\"],[45727616,null,true,null,null,null,\"qNQRAf\"],[45727273,null,false,null,null,null,\"dMkROb\"],[45769413,null,false,null,null,null,\"u0yjqd\"],[45644642,null,null,null,\"X-WS exp!\",null,\"rsrxGc\"],[45748088,null,true,null,null,null,\"KLuwTc\"],[45744236,null,false,null,null,null,\"Rnque\"],[45747674,null,false,null,null,null,\"uwvdNc\"],[45778211,null,false,null,null,null,\"W7jxNc\"],[45749331,null,false,null,null,null,\"JQs3De\"],[45676183,null,false,null,null,null,\"EpABPb\"],[45696305,null,false,null,null,null,\"Uujhbc\"],[45775833,null,false,null,null,null,\"bRlUw\"],[45699426,null,false,null,null,null,\"qWUOSd\"],[45679175,null,false,null,null,null,\"OETeme\"],[45747909,null,false,null,null,null,\"uTkAWb\"],[45677009,null,false,null,null,null,\"JkUdKe\"],[45678187,null,false,null,null,null,\"OrvCpd\"],[45672203,null,true,null,null,null,\"jDBBvd\"],[45643359,null,true,null,null,null,\"GcxuKe\"],[45672066,null,true,null,null,null,\"E1A5lb\"],[45773777,null,false,null,null,null,\"PT2mkd\"],[45751947,null,true,null,null,null,\"sT6Vl\"],[45725181,null,null,null,\"\",null,\"QOhO3d\"],[45670693,null,false,null,null,null,\"V7Wemb\"],[45691859,null,false,null,null,null,\"p9TOQ\"],[45730498,null,false,null,null,null,\"ZycXJf\"],[45717711,null,false,null,null,null,\"lhxHkd\"],[45674760,null,null,null,\"Q2udpf42g0suK1NZr2K0SS4sTYE7\",null,\"E55iCf\"],[45724955,null,true,null,null,null,\"Lhvui\"],[45777286,null,false,null,null,null,\"NYeKmb\"],[45775584,0,null,null,null,null,\"bjSjmf\"],[45775398,null,false,null,null,null,\"ejP0Cd\"],[45712967,null,false,null,null,null,\"rZW8ld\"],[45673686,null,false,null,null,null,\"TVdkuc\"],[45673687,null,false,null,null,null,\"OQKgkd\"],[45762063,null,true,null,null,null,\"WlmQwb\"],[45681145,null,true,null,null,null,\"hV6kcd\"],[45743516,null,false,null,null,null,\"C3mEk\"],[45777275,null,false,null,null,null,\"ouALOd\"],[45678265,null,false,null,null,null,\"P7qpdc\"],[45724030,null,false,null,null,null,\"V0bNGd\"],[45725105,null,true,null,null,null,\"VQN2ac\"],[45672211,null,false,null,null,null,\"Wgtd8c\"],[45693258,null,null,null,null,null,\"BrCRse\",[\"[[\\\"en\\\",\\\"en-US\\\",\\\"en-GB\\\",\\\"en-CA\\\",\\\"en-AU\\\",\\\"en-IN\\\",\\\"en-IE\\\",\\\"en-NZ\\\",\\\"en-ZA\\\"]]\"]],[45729447,null,false,null,null,null,\"hjIR6e\"],[45768846,null,false,null,null,null,\"rwPWxf\"],[45754885,null,false,null,null,null,\"rKnVYd\"],[45757913,null,false,null,null,null,\"qmNm7d\"],[45769936,null,false,null,null,null,\"FXtIgb\"],[45752217,null,false,null,null,null,\"N9LDI\"],[45686665,null,true,null,null,null,\"xGJelc\"],[45668197,null,true,null,null,null,\"pReYPb\"],[45723911,null,false,null,null,null,\"e77Z7d\"],[45763814,null,false,null,null,null,\"s2BRxc\"],[45674975,null,false,null,null,null,\"sBUhfc\"],[45706188,null,true,null,null,null,\"OF1zrd\"],[45706819,null,false,null,null,null,\"aPAx2b\"],[45770955,null,false,null,null,null,\"GYvfVc\"],[45742777,null,true,null,null,null,\"PPsZu\"],[45714946,null,true,null,null,null,\"ZYrane\"],[45664242,null,false,null,null,null,\"o4hKqd\"],[45678908,null,true,null,null,null,\"V6Qvvf\"],[45751437,null,true,null,null,null,\"HgnE6e\"],[45700150,null,false,null,null,null,\"RLRykc\"],[45678679,null,true,null,null,null,\"HbebVe\"],[45772218,null,false,null,null,null,\"KV2rCe\"],[45715074,null,true,null,null,null,\"xxxPgb\"],[45700770,null,false,null,null,null,\"Mk7a4d\"],[45681147,null,true,null,null,null,\"pgDArb\"],[45776812,null,true,null,null,null,\"SX5Atc\"],[45677445,null,true,null,null,null,\"rPYk8\"],[45658949,null,true,null,null,null,\"NfShlf\"],[45722047,null,null,null,null,null,\"D6k5oe\",[\"[[\\\"af\\\",\\\"am\\\",\\\"ar\\\",\\\"ar-EG\\\",\\\"ar-001\\\",\\\"az\\\",\\\"be\\\",\\\"bg\\\",\\\"bn\\\",\\\"ca\\\",\\\"ceb\\\",\\\"cs\\\",\\\"da\\\",\\\"de\\\",\\\"el\\\",\\\"en\\\",\\\"es\\\",\\\"es-419\\\",\\\"es-ES\\\",\\\"es-MX\\\",\\\"es-US\\\",\\\"et\\\",\\\"eu\\\",\\\"fa\\\",\\\"fi\\\",\\\"fil\\\",\\\"fr\\\",\\\"fr-FR\\\",\\\"fr-CA\\\",\\\"gl\\\",\\\"gu\\\",\\\"hi\\\",\\\"hr\\\",\\\"ht\\\",\\\"hu\\\",\\\"hy\\\",\\\"id\\\",\\\"is\\\",\\\"it\\\",\\\"iw\\\",\\\"ja\\\",\\\"jv\\\",\\\"ka\\\",\\\"kn\\\",\\\"ko\\\",\\\"kok\\\",\\\"la\\\",\\\"lt\\\",\\\"lv\\\",\\\"mai\\\",\\\"mk\\\",\\\"ml\\\",\\\"mr\\\",\\\"ms\\\",\\\"my\\\",\\\"ne\\\",\\\"nl\\\",\\\"no\\\",\\\"nb-NO\\\",\\\"nn-NO\\\",\\\"or\\\",\\\"pa\\\",\\\"pl\\\",\\\"ps\\\",\\\"pt\\\",\\\"pt-BR\\\",\\\"pt-PT\\\",\\\"ro\\\",\\\"ru\\\",\\\"sd\\\",\\\"si\\\",\\\"sk\\\",\\\"sl\\\",\\\"sq\\\",\\\"sr\\\",\\\"sv\\\",\\\"sw\\\",\\\"ta\\\",\\\"te\\\",\\\"th\\\",\\\"tr\\\",\\\"uk\\\",\\\"ur\\\",\\\"vi\\\",\\\"zh\\\",\\\"zh-Hans-CN\\\",\\\"zh-Hant-TW\\\",\\\"zh-CN\\\",\\\"zh-TW\\\",\\\"zh-Hans\\\",\\\"zh-Hant\\\",\\\"nl-NL\\\"]]\"]],[45748403,null,true,null,null,null,\"XYCTRc\"],[45699702,null,false,null,null,null,\"Xo3sI\"],[45765896,null,false,null,null,null,\"Gl5aM\"],[45749214,null,null,null,\"\",null,\"HkDBBd\"],[45710394,null,false,null,null,null,\"ZsDmSd\"],[45729467,null,false,null,null,null,\"kKLGLb\"],[45769154,null,false,null,null,null,\"OPleEe\"],[45677526,null,null,null,\"hZeGRZs5p0suK1NZr2K0V3syYPHo\",null,\"KtCfwd\"],[45754522,null,false,null,null,null,\"xpNFQe\"],[45762489,null,false,null,null,null,\"cqFBGe\"],[45760024,null,false,null,null,null,\"iKoeab\"],[45775102,null,null,null,\"\",null,\"patyy\"],[45774956,null,false,null,null,null,\"rhB3ee\"],[45721408,null,false,null,null,null,\"smbAqe\"],[45724259,null,false,null,null,null,\"Sjqsdf\"],[45672206,null,false,null,null,null,\"qxTK9b\"],[45709238,null,false,null,null,null,\"jQTN0e\"],[45729422,null,true,null,null,null,\"OOSdib\"],[45778396,null,false,null,null,null,\"iIQBF\"],[45739155,null,false,null,null,null,\"Ljfylf\"],[118533938,null,true,null,null,null,\"hWR45d\"],[45769440,null,false,null,null,null,\"usHrq\"],[45776472,null,false,null,null,null,\"DG5sXe\"],[45672527,null,false,null,null,null,\"LIKBre\"],[45764491,null,false,null,null,null,\"S8LJ2d\"],[45728555,null,null,null,\"\",null,\"ptUmFe\"],[45654291,null,false,null,null,null,\"rhP5uf\"],[45725182,null,null,null,\"\",null,\"McLXzc\"],[45653421,null,true,null,null,null,\"K2C7od\"],[45744297,null,false,null,null,null,\"HAj7Mb\"],[45644639,null,true,null,null,null,\"GoJCRc\"],[45754280,null,false,null,null,null,\"j636ic\"],[45744234,null,false,null,null,null,\"LtNgOd\"],[45672202,null,false,null,null,null,\"CyvTSb\"],[45726382,null,false,null,null,null,\"QUY3\"],[45744918,null,false,null,null,null,\"f9HMbb\"],[45724458,null,false,null,null,null,\"MRpQbd\"],[45621619,null,false,null,null,null,\"PfkIr\"],[45773994,null,false,null,null,null,\"dADOHe\"],[45735186,null,false,null,null,null,\"SIvvz\"],[45672213,null,true,null,null,null,\"BfWTle\"],[45771189,null,false,null,null,null,\"N8Zn3e\"],[45758631,null,false,null,null,null,\"kGhHOe\"],[45757518,null,false,null,null,null,\"hbO0Gd\"],[45724460,null,null,0.5,null,null,\"U6t0Ob\"],[45748160,null,true,null,null,null,\"SX7P2b\"],[45730792,null,false,null,null,null,\"m0Fg3c\"],[45730506,null,false,null,null,null,\"qhuWUc\"],[45752216,null,false,null,null,null,\"EJg6N\"],[45769023,null,false,null,null,null,\"z66fFe\"],[45690176,null,false,null,null,null,\"qF6xVc\"],[45686663,null,true,null,null,null,\"KGh4Cc\"],[45725770,null,false,null,null,null,\"yRc2q\"],[45697234,null,true,null,null,null,\"cUoIXb\"],[45708298,null,false,null,null,null,\"T4IN0c\"],[45748868,null,false,null,null,null,\"HraNse\"],[45746067,null,true,null,null,null,\"wK00sd\"],[45751187,null,false,null,null,null,\"OuEQae\"],[45718842,null,false,null,null,null,\"Ywwwdb\"],[45770251,null,false,null,null,null,\"ugtdaf\"],[45696619,null,false,null,null,null,\"U7gqEe\"],[45766700,null,false,null,null,null,\"wxRkOc\"],[45723113,null,true,null,null,null,\"Mv7Xhb\"],[45752852,null,false,null,null,null,\"Pdqiud\"],[45752686,null,true,null,null,null,\"mi0YMb\"],[45729830,null,false,null,null,null,\"DCV6If\"],[45712870,null,false,null,null,null,\"J04FPb\"],[45762802,null,false,null,null,null,\"zcN1ic\"],[45769980,null,false,null,null,null,\"GcH8If\"],[45703610,null,false,null,null,null,\"UtcGCc\"],[45658679,null,true,null,null,null,\"qdTkee\"],[45720792,null,false,null,null,null,\"NFUw0c\"],[45753332,null,false,null,null,null,\"s7RHUb\"],[45771617,null,false,null,null,null,\"Blimsc\"],[45767102,null,true,null,null,null,\"SFyMwf\"],[45770188,null,false,null,null,null,\"JMBoZe\"],[45724459,null,null,null,\"rHrAD6ykh0suK1NZr2K0TB6fPtWB\",null,\"CE91jd\"],[45779204,null,false,null,null,null,\"yC3ALe\"],[45725154,null,true,null,null,null,\"WbzTGf\"],[45718464,null,true,null,null,null,\"MmyjKe\"],[45641838,null,false,null,null,null,\"fLPxhf\"],[45773554,null,false,null,null,null,\"twqoIf\"],[45750741,null,true,null,null,null,\"CUcuI\"],[45723283,null,false,null,null,null,\"SoWiLc\"],[45723104,null,true,null,null,null,\"EkiEee\"],[45747769,null,true,null,null,null,\"pkwVub\"],[45742776,null,true,null,null,null,\"wyKum\"],[45725720,null,false,null,null,null,\"ZBeYxd\"],[45737532,null,false,null,null,null,\"JmYEv\"],[45755277,null,false,null,null,null,\"kHLD6e\"],[45751442,null,true,null,null,null,\"f4YkJ\"],[45776409,null,false,null,null,null,\"G5gJw\"],[45686662,null,true,null,null,null,\"go03Eb\"],[45746367,null,false,null,null,null,\"GFsSZ\"],[45773549,null,false,null,null,null,\"Xo7q9d\"],[45660690,null,false,null,null,null,\"ovKHsb\"],[45765943,null,true,null,null,null,\"OhdpDb\"],[45770837,null,false,null,null,null,\"FJ461c\"],[45677461,null,null,null,null,null,\"qb66hd\",[\"[]\"]],[45769474,null,false,null,null,null,\"u2dq9e\"],[45746380,null,false,null,null,null,\"fkqxGb\"],[45691858,null,false,null,null,null,\"rWzu0d\"],[45728726,null,false,null,null,null,\"yMFQX\"],[45746750,null,false,null,null,null,\"CRyfMe\"],[45725110,null,true,null,null,null,\"ElheSd\"],[45751415,null,false,null,null,null,\"fJBcbd\"],[45679439,null,false,null,null,null,\"DNzQwe\"],[45699017,null,null,null,\"rffTE8sLk0suK1NZr2K0RtLUVxzE\",null,\"tWGWgc\"],[45728785,null,false,null,null,null,\"UPAJB\"],[45765410,null,false,null,null,null,\"CaEMO\"],[45780927,null,false,null,null,null,\"rThdVb\"],[45660287,null,false,null,null,null,\"nIuPDe\"],[45686664,null,true,null,null,null,\"P0fSX\"],[45676780,null,false,null,null,null,\"GSMsUe\"],[45769057,null,false,null,null,null,\"o9iuvb\"],[45692064,null,false,null,null,null,\"wZ64Sb\"],[45773613,null,false,null,null,null,\"tDmOYe\"],[45711477,null,false,null,null,null,\"Rnlerd\"],[45674758,null,false,null,null,null,\"ZHtfUc\"],[45676996,null,false,null,null,null,\"KFVYtf\"],[45672205,null,true,null,null,null,\"E7dKkc\"],[45699204,null,true,null,null,null,\"XWRwod\"],[45776401,null,false,null,null,null,\"VdeTBe\"],[45752655,null,false,null,null,null,\"NsOFEe\"],[45769147,null,false,null,null,null,\"DFM4ae\"],[45729696,null,null,1,null,null,\"UeMd4b\"],[45730222,null,null,30000,null,null,\"qnlClb\"],[45736179,null,false,null,null,null,\"LIe8ub\"],[45727546,null,true,null,null,null,\"wT569b\"],[45729690,null,true,null,null,null,\"AQMuhd\"],[45644640,42,null,null,null,null,\"xbuGR\"],[45687747,null,true,null,null,null,\"n1Nom\"],[45774972,null,false,null,null,null,\"Bn84Kd\"],[45677729,null,false,null,null,null,\"wzZQPd\"],[45708977,null,false,null,null,null,\"AxurIf\"],[45752218,null,false,null,null,null,\"Gktqke\"],[45715626,null,false,null,null,null,\"ERq70c\"],[45742079,null,false,null,null,null,\"awHj9\"],[45676754,null,false,null,null,null,\"YwbU8\"],[45678215,null,null,null,\"6PSdkFYUx0suK1NZr2K0SmPPgaGe\",null,\"JR8rtc\"],[45767159,0,null,null,null,null,\"yDErgc\"],[45761752,null,false,null,null,null,\"tYjnud\"],[45770249,null,false,null,null,null,\"cUUSDf\"],[45726852,null,false,null,null,null,\"qgjRgd\"],[45700504,null,false,null,null,null,\"u6ksOd\"],[45678217,null,null,0.01,null,null,\"RL6SLc\"],[45672085,null,true,null,null,null,\"FJbUAf\"],[45742759,null,false,null,null,null,\"hc5Fic\"],[45754335,null,false,null,null,null,\"P5Zswc\"],[45648275,null,true,null,null,null,\"X5yyz\"],[45750887,null,false,null,null,null,\"WTvwUd\"],[45703717,null,false,null,null,null,\"ZfxSFe\"],[45762425,null,false,null,null,null,\"l5Ziqe\"],[45765314,null,false,null,null,null,\"jNI7Hb\"],[45737769,null,false,null,null,null,\"C4gACf\"],[45684108,null,false,null,null,null,\"IHwhDb\"],[45674285,null,false,null,null,null,\"zRoGXc\"],[45679713,null,false,null,null,null,\"EEZ1dd\"],[45774501,null,false,null,null,null,\"flYjKf\"],[45766771,null,false,null,null,null,\"aCW0Qd\"],[45775440,null,false,null,null,null,\"LBBJ2e\"],[45746176,null,false,null,null,null,\"atfOHe\"],[45729695,null,false,null,null,null,\"tYEdHb\"],[45750646,null,false,null,null,null,\"ZsLlE\"],[45779046,null,false,null,null,null,\"wYy78\"],[45674761,null,null,0.5,null,null,\"GpQcOb\"],[45736482,null,false,null,null,null,\"DAnsv\"],[45684730,null,true,null,null,null,\"aW7Ggd\"],[45812345,null,false,null,null,null,\"pArP2c\"],[45677444,null,true,null,null,null,\"WYEV9b\"],[45776017,null,false,null,null,null,\"aAEbr\"],[45779941,null,false,null,null,null,\"r18O9b\"],[45747879,null,false,null,null,null,\"kZsK5\"],[45764672,null,false,null,null,null,\"R1I5We\"],[45661802,null,false,null,null,null,\"I09lfd\"],[45772691,null,false,null,null,null,\"A6J3Xb\"],[45709342,null,false,null,null,null,\"Ab7Nmd\"],[45746685,null,true,null,null,null,\"Q3KBSd\"],[45778160,null,false,null,null,null,\"oWcm2d\"],[45737207,null,false,null,null,null,\"Kw5UUd\"],[45639541,null,true,null,null,null,\"LHinid\"],[45736727,null,false,null,null,null,\"JJHfwf\"],[45768825,null,false,null,null,null,\"pf4r3c\"],[45748983,null,false,null,null,null,\"s0d1Kd\"],[45757707,null,false,null,null,null,\"yZYBLb\"],[45752219,null,false,null,null,null,\"QIG0Je\"],[45780893,null,false,null,null,null,\"sRGemf\"],[45736425,null,null,null,\"Z7vabQzZ0Bn3gbW4AcZC0TfvmSab\",null,\"fFl01\"],[45772141,null,false,null,null,null,\"jXHT1d\"],[45719766,null,false,null,null,null,\"A3eSQd\"],[45772275,null,false,null,null,null,\"oqsMtf\"],[45696085,null,false,null,null,null,\"g3Gc7d\"],[45707719,null,false,null,null,null,\"GtbvFd\"],[45757471,null,true,null,null,null,\"fDV6xf\"],[45731897,null,false,null,null,null,\"NK5elf\"],[45745030,null,false,null,null,null,\"HKORbd\"],[45682655,null,false,null,null,null,\"riQMFe\"],[45762174,null,false,null,null,null,\"eUI0gb\"],[45683718,null,true,null,null,null,\"zQUS6d\"],[45751476,null,false,null,null,null,\"gwKlXb\"],[45746766,null,true,null,null,null,\"a6khDf\"],[45657471,null,null,null,null,null,\"kMR5pc\",[\"[[\\\"es\\\",\\\"pt\\\",\\\"ja\\\",\\\"ko\\\",\\\"fr\\\",\\\"it\\\",\\\"de\\\",\\\"zh-CN\\\",\\\"nl\\\",\\\"tr\\\",\\\"cs\\\",\\\"sv\\\",\\\"da\\\",\\\"no\\\",\\\"pl\\\",\\\"vi\\\",\\\"th\\\",\\\"fi\\\",\\\"uk\\\",\\\"ru\\\",\\\"hu\\\",\\\"ro\\\",\\\"ms\\\",\\\"el\\\",\\\"ca\\\",\\\"ar\\\",\\\"iw\\\",\\\"he\\\"]]\"]],[45772706,null,false,null,null,null,\"LZgWZ\"],[45686667,null,true,null,null,null,\"ek81nf\"],[45658731,null,true,null,null,null,\"zMe6ub\"],[45777878,null,false,null,null,null,\"Se84Kc\"],[45658716,null,true,null,null,null,\"Fa3cob\"],[45685754,null,true,null,null,null,\"OyPt5\"],[45756433,null,false,null,null,null,\"Zb8rLd\"],[45661086,null,false,null,null,null,\"wfVdS\"],[45742887,null,false,null,null,null,\"bzXlub\"],[45666088,null,false,null,null,null,\"MgfT5\"],[45735477,null,false,null,null,null,\"qK0Vqb\"],[45774508,null,false,null,null,null,\"h5ZSZb\"],[45771289,null,false,null,null,null,\"s7fdUc\"],[45729970,null,false,null,null,null,\"V517pe\"],[45677456,null,false,null,null,null,\"pyUPD\"],[45658644,null,true,null,null,null,\"ZdwoD\"],[45768710,null,false,null,null,null,\"a6GDme\"],[45696263,null,null,null,null,null,\"W12Bse\",[\"[[\\\"feature named `pageObserver` was not found\\\",\\\"feature named `hover` was not found\\\"]]\"]],[45653615,null,null,null,null,null,\"lwF00d\",[\"[[\\\"es\\\",\\\"pt\\\",\\\"ja\\\",\\\"ko\\\",\\\"fr\\\",\\\"it\\\",\\\"de\\\",\\\"zh\\\",\\\"nl\\\",\\\"iw\\\",\\\"he\\\",\\\"tr\\\",\\\"cs\\\",\\\"sv\\\",\\\"da\\\",\\\"no\\\",\\\"pl\\\",\\\"vi\\\",\\\"th\\\",\\\"fi\\\",\\\"uk\\\",\\\"ar\\\",\\\"ru\\\",\\\"hu\\\",\\\"ro\\\",\\\"ms\\\",\\\"el\\\",\\\"ca\\\",\\\"id\\\",\\\"in\\\"]]\"]],[45658291,null,true,null,null,null,\"OSuRGd\"],[45689771,null,false,null,null,null,\"dkdoVc\"],[45716368,null,false,null,null,null,\"Rd9FMb\"],[45779090,null,false,null,null,null,\"hCbIKb\"],[45735651,null,true,null,null,null,\"QEOLhc\"],[45743085,null,false,null,null,null,\"Ph5VH\"],[45765839,null,false,null,null,null,\"qNyb0e\"],[45776510,null,false,null,null,null,\"MkLvwf\"],[45681790,null,false,null,null,null,\"uPCxtc\"],[45647060,null,true,null,null,null,\"uYjPWb\"],[45720439,null,false,null,null,null,\"UFhFZb\"],[45736698,null,false,null,null,null,\"nhgo9c\"],[45770330,null,true,null,null,null,\"escipf\"],[45686666,null,true,null,null,null,\"dZ9mjb\"],[45644641,null,null,3.14159,null,null,\"FX1FL\"],[45747887,null,false,null,null,null,\"BvfvHb\"],[45694562,null,true,null,null,null,\"D50qNc\"],[45696552,null,false,null,null,null,\"f1ZShc\"],[45777794,null,false,null,null,null,\"E1AmL\"],[45773680,null,false,null,null,null,\"rgqUee\"],[45674759,null,null,null,\"nHWnsqMqi0suK1NZr2K0QMJZfKqX\",null,\"xH7haf\"]],\"CAMSiwIdjwW/q7IoA9KwfqTUBAPnBgPXmgID0PsNA6oGA8dZA/WgDsG/IwOGowUDlgUDj8QFvhkD2UADkL0FA5SzBgO9BQPBZwOGAwP/LwOIBQPm1QaBQQO8lgwDnosFA8wGAygD4gYDLwO2BgPxjQUDsU8D/QUD05UXA/mQBQO2BgOt3QYD9IRNsuYFA2IDyAYDgQUD9NMQsYwOA4mdCwOUuekDA8TFAAPt6QYDYAPyHwHA5gADoxcDprYBA8BtA6WDFgP3pgYBlp4GA6H3FJMFA5/7DAPbrwYDiCID/bwEA/J/AvoXA97XDQO9rwUDzQUD8c0GpZ4DAvT7CqmVCAP0oAkD/dMCA53FDQPc9AM\\u003d\"]]]","nQyAE":{}};</script><script nonce="">_docs_flag_initialData={"docs-daflia":true,"docs-cclt":57,"docs-mwid":true,"docs-smheo":true,"info_params":{"token":"AOqKD6CUq-mmDv6n-_LwFzJCjFH_:1777253520865","ouid":"116324877943507306547","includes_info_params":true},"docs-ecci":true,"ilcm":{"eui":"ADFN-csKXdXF3fvoUPgXalxCz6yS9rGtilJk8VyAypXsY_gE6FiLXulYwZ9fR8pxE6xBxBYwqSKS","je":1,"sstu":1777253520868697,"si":"CNmKpqbxjJQDFW0ZswUdQV8Czg","gsc":5,"ei":[5700057,5700103,5700333,5703839,5704621,5704883,5705891,5706069,5706270,5706786,5707047,5707204,5708479,5708578,5709357,5709476,5710692,5711550,5712635,5712909,5713195,5713554,5714310,5714839,5714843,5719527,5720568,5724199,5724215,5724419,5724435,5724880,5724896,5726679,5726695,5726752,5727241,5727257,5729076,5729092,5734616,5734632,5735236,5735252,5738065,5738081,5738199,5738215,5740170,5740186,5740325,5740341,5740715,5740731,5743452,5743771,5743787,5746708,5746724,5749699,5749715,5753665,5753681,5754902,5754918,5756639,5756655,5756843,5756859,5757366,5757382,5758658,5758674,5760151,5760167,5760291,5760307,5760434,5760450,5760454,5760470,5760744,5760760,5768001,5768017,5768309,5768325,5769775,5769791,5771519,5771535,5776987,5777003,5782208,5782224,5782619,5782635,5784083,5784099,5785561,5785577,5786387,5786403,5787277,5787293,5797683,5797699,13702623,48966194,48966202,49398741,49398749,49421444,49421452,49471963,49471971,49491677,49491685,49498893,49498901,49518582,49518590,49623541,49623549,49629254,49629262,49644115,49644123,49769317,49769325,49822901,49822909,49823104,49823112,49833542,49833550,49842975,49842983,49904339,49904347,49924746,49924754,49926193,49926201,49943119,49943127,49971933,49971941,49979598,49979606,50223874,50223882,50266142,50266150,50273408,50273416,50297016,50297024,50335667,50335675,50389250,50389258,50438885,50439160,50439168,50503859,50503867,50513154,50538644,50538652,50549575,50549583,50549971,50549979,50561423,50561431,50562893,50562904,50587002,50587010,50596417,50602281,50602289,70971276,70971284,71061492,71079878,71079886,71085301,71085309,71120888,71120896,71145446,71145457,71376076,71376084,71387413,71387424,71387869,71387877,71406837,71406845,71451242,71451250,71465987,71465995,71505840,71505848,71520550,71520558,71530123,71530131,71542997,71543013,71544814,71544822,71546325,71558464,71558472,71575163,71575179,71608360,71608368,71614749,71614765,71626764,71626772,71626796,71626804,71626817,71626825,71626869,71626877,71626880,71626888,71626931,71626939,71626941,71626949,71627021,71627029,71627041,71627049,71652641,71658060,71658068,71659893,71659901,71660211,71660227,71668382,71668390,71679500,71679508,71681910,71689920,71689928,71710020,71710028,71724752,71724768,71737826,71737842,71821490,71821506,71825503,71825511,71833016,71854930,71854938,71898007,71898015,71899389,71899400,71960480,71960488,94326619,94327491,94327499,94333123,94333131,94333352,94333368,94353288,94353296,94386986,94390223,94390239,94429074,94434297,94434305,94434487,94434503,94461486,94523188,94523196,94573779,94573787,94574461,94574477,94585959,94585967,94624765,94624773,94629777,94629785,94641927,94641943,94642103,94642119,94660975,94660983,94661862,94661870,94664467,94664483,94664513,94664529,94687641,94692418,94692426,94729326,94729334,94733597,94733605,94742659,94742675,94745016,94745024,94755915,94755931,94773559,94785069,94785077,94813572,94813583,94818995,94819000,94819014,94819019,94819501,94819506,94864553,94864561,94888307,94888323,94896349,94896365,94902370,94902378,94904069,94904077,94911510,94911526,94919132,94919140,95014976,95014992,95087006,95087014,95096937,95096953,95104388,95104399,95111945,95111953,95112753,95112761,95125059,95125070,95129666,95131013,95131021,95162880,95162896,95182369,95182374,95208282,95208298,95217969,95217985,95236897,95236913,95314822,95314830,95317502,95317510,99251883,99251891,99253920,99253936,99257927,99338800,99338808,99342898,99343298,99343306,99368712,99368720,99400122,99400130,99402271,99402279,99402630,99402652,99440184,99440189,99440813,99440821,99457526,99457534,99457667,99457675,99458338,99458354,99575057,99575073,99808874,99808890,100640005,100640007,101397949,101397965,101429779,101436110,101436126,101436501,101436517,101440959,101448281,101448286,101478096,101478104,101483525,101489591,101489596,101489821,101489826,101492891,101492899,101519320,101519328,101561612,101561620,101562386,101562394,101574991,101574999,101575539,101575544,101595212,101595228,101629806,101629814,101631351,101631359,101672665,101687077,101687085,101706496,101706512,101718347,101718363,101718563,101718571,101728415,101728431,101732382,101752567,101752583,101755344,101755349,101755523,101755528,101767625,101767630,101788163,101788171,101793865,101823243,101823251,101831080,101831096,101854652,101854668,101855259,101855267,101860687,101860695,101867903,101867911,101874281,101874297,101887614,101887622,101896315,101896355,101901628,101901644,101917145,101917153,101919478,101919486,101920193,101922659,101922667,101922840,101922848,101923690,101923706,101933611,101933619,101962018,101962026,101962597,102020119,102020135,102030522,102030530,102042883,102042899,102059501,102059509,102070556,102070564,102070990,102070998,102074007,102074015,102075698,102075714,102083346,102083354,102099120,102146567,102146575,102161305,102161313,102161607,102161615,102167858,102167874,102198302,102198310,102200941,102200957,102208352,102208360,102209639,102209655,102231923,102236206,102236214,102244449,102244457,102262429,102262437,102280668,102280676,102287424,102287432,102287944,102287952,102292076,102292084,102342896,102342904,102343400,102343408,102388242,102388247,102399861,102399869,102400942,102400958,102402659,102402667,102430781,102430789,102449788,102449796,102461805,102461821,102469840,102469848,102517256,102517261,102544309,102544325,102548541,102548549,102554639,102554644,102554918,102554923,102576468,102576484,102587613,102587621,102595694,102595710,102596276,102600174,102600179,102601477,102601493,102609362,102609367,102618688,102618696,102630355,102632488,102632504,102640601,102640617,102641440,102641445,102649583,102649588,102649977,102649982,102672648,102672653,102672968,102672973,102673455,102685332,102685337,102685851,102685856,102690680,102690688,102691097,102691102,102691374,102691379,102718357,102727324,102727329,102728929,102728945,102741266,102741274,102762215,102762223,102774409,102774417,102783549,102783557,102787583,102799755,102803284,102803306,102807870,102807878,102811823,102811831,102823462,102823478,102838653,102838669,102852357,102859126,102859134,102863271,102863276,102867775,102867783,102883665,102883673,102903600,102903608,102909789,102909794,102921573,102921581,102925999,102926007,102926663,102926671,102932607,102932615,102944124,102944129,102944333,102944338,102944386,102944391,102944621,102944626,102944667,102944672,102944850,102944855,102952124,102952140,102952144,102952160,102972709,102972717,102973320,102973328,102979022,102979027,102988298,102988303,102988682,102988687,102999649,102999654,103011619,103011627,103024782,103024798,103029011,103029027,103127775,103137139,103137155,103157617,103157633,103163024,103163032,103175950,103175958,103178748,103178764,103191257,103191273,103195345,103195361,103209245,103209253,103253220,103253225,103282035,103282040,103285866,103285874,103286153,103286161,103286564,103286572,103288446,103288454,103289064,103289069,103289247,103289252,103296134,103296142,103298976,103298992,103317199,103317204,103322541,103322549,103326427,103326435,103339623,103339639,103339696,103339704,103343770,103343778,103354256,103354264,103354912,103355293,103355301,103355523,103355531,104487008,104487024,104519456,104519472,104530120,104574099,104574107,104575358,104575363,104575465,104575470,104575678,104575683,104575946,104575951,104615655,104615663,104617253,104617269,104624583,104624591,104627929,104627935,104643627,104646587,104646603,104654306,104654314,104659495,104659511,104699364,104699372,104726628,104726644,104761851,104761859,104780330,104780346,104788701,104788717,104794523,104794531,104799759,104799775,104812778,104812794,104850015,104850031,104857735,104857743,104900728,104900744,104907911,104907919,104915648,104915664,104936681,104936697,104940457,104940465,104956935,104956951,104959322,104959338,104963362,104963370,104963651,104974928,104974936,104976577,104976585,104983049,104983057,104994277,104994293,105032592,105082137,105082145,105084909,105084917,105090970,105090986,105100857,105100865,105110463,105110468,105111683,105111699,105112570,105112575,105113790,105113806,105114579,105114587,105117467,105117475,105121457,105121473,105125277,105125285,105140185,105140193,105140754,105140770,105180914,105180922,105255678,105255686,105283707,105283715,105302133,105302141,105312526,105312531,105333025,105333041,105345084,105345089,105346305,105346313,105360358,105360366,105368272,105368288,105368548,105368556,105374024,105374032,105380952,105393871,105393879,105405435,105405451,105439120,105439136,105439271,105439279,105457287,105457292,105457550,105474728,105474744,115510022,115510030,115511335,115511340,115601179,115601187,115614398,115614406,115626238,115626246,115626479,115626487,115634544,115634549,115665120,115665125,115665229,115665234,115668424,115668431,115669278,115669286,115680850,115680866,115687367,115687372,115726899,115726915,115748334,115748340,115755384,115755392,115779981,115779989,115780498,115780506,115780561,115780569,115795607,115795612,115797697,115797702,115809463,115809479,115818333,115818349,115831776,115831792,115848548,115848564,115849188,115849193,115855095,115855103,115872008,115872024,115902312,115902317,115906832,115906848,115909821,115909829,115915957,115915962,115916250,115916255,115917318,115917326,115928939,115928947,115930177,115943114,115943122,115954366,115954371,115973563,115973579,115974726,115974742,115986507,115986513,115990691,115990699,116059405,116059413,116076925,116076931,116091118,116093395,116093411,116098206,116098222,116108988,116109004,116150786,116150794,116176849,116176857,116195037,116195042,116215763,116215770,116221474,116221482,116222264,116222269,116235372,116235377,116236312,116236317,116250745,116250753,116255734,116255742,116276441,116276449,116283563,116283579,116307750,116312168,116312184,116313948,116313964,116361234,116372557,116372565,116377870,116377875,116390625,116390641,116407665,116415994,116416002,116420636,116420641,116420853,116420869,116421251,116421259,116421348,116421364,116425644,116443665,116443670,116448407,116449517,116459605,116459679,116466570,116466576,116470832,116472124,116472131,116479751,116480001,116486053,116486059,116487122,116487138,116493183,116493199,116495785,116496065,116496081,116496398,116502867,116503963,116507232,116508642,116508647,116514183,116514189,116519597,116519603,116522442,116522458,116524154,116524309,116535133,116535149,116538348,116538353,116538476,116538484,116542687,116550347,116560713,116560718,116560726,116560731,116560739,116560744,116561048,116561325,116561330,116565035,116565051,116567499,116567504,116593749,116609411,116609419,116611073,116611078,116611824,116611840,116613094,116613710,116655875,116674089,116674105,116676909,116676925,116678925,116678931,116685399,116685789,116697553,116697559,116704081,116704119,116706845,116714309,116714312,116731463,116731469,116731491,116731497,116731505,116731511,116731519,116731525,116742898,116742914,116756963,116756971,116757451,116757456,116771270,116771276,116779053,116779058,116783810,116783815,116786192,116803301,116803317,116832811,116833180,116833185,116840642,116840647,116847573,116847578,116848835,116848851,116856125,116856131,116858305,116858310,116874913,116877109,116918027,116919494,116923675,116924991,116930527,116930543,116936560,116936576,116945537,116945553,116948641,116948649,116952934,116952950,116980347,116980355,116999326,116999334,117000125,117000141,117010993,117011001,117014872,117014888,117026762,117026878,117026880,117027676,117032480,117032485,117033745,117037128,117037136,117037621,117037626,117049371,117049387,117070432,117070437,117070768,117070773,117071761,117071766,117072898,117072914,117075206,117075212,117091085,117096748,117124349,117124356,117128352,117128368,117128380,117128386,117136347,117141404,117143742,117143747,117148946,117148952,117164933,117165519,117165525,117166648,117212081,117212087,117224179,117224187,117229136,117229152,117248280,117251847,117268877,117268885,117290230,117290238,117297869,117297874,117309434,117309442,117310488,117310494,117322319,117322327,117332319,117334158,117339411,117339417,117342556,117342572,117345915,117345922,117356690,117356695,117357715,117357721,117367088,117367094,117376295,117376301,117379670,117379676,117380562,117380569,117380999,117381005,117381239,117381247,117382832,117394505,117396146,117415197,117415213,117425340,117425345,117426094,117426110,117431406,117431412,117433371,117439270,117439276,117451793,117451799,117457878,117457886,117508753,117508758,117528469,117528470,117530136,117532018,117532026,117556935,117557279,117564865,117564871,117586569,117586574,117614723,117614728,117617889,117623323,117623329,117623545,117623561,117632590,117642488,117642616,117642621,117645881,117645897,117654278,117654284,117660082,117660090,117664018,117664034,117683634,117703868,117703874,117706017,117707794,117707802,117711596,117723591,117723597,117730931,117730937,117734391,117736031,117740479,117740485,117755703,117755716,117755820,117756394,117757376,117758413,117758418,117775368,117782123,117786825,117786833,117791224,117791230,117798237,117799779,117800030,117800038,117826213,117826229,117832402,117832418,117836031,117836037,117839454,117839459,117849065,117849073,117859867,117859913,117866239,117866247,117869459,117872308,117872324,117877105,117877110,117879413,117879418,117883689,117883696,117888858,117888866,117895860,117895868,117920325,117920341,117920438,117920444,117924608,117969905,117969910,117976032,117976048,117983432,117983437,117987864,117987880,117987981,117987997,117988981,117988989,117994573,117994589,117995679,117995683,117995689,117995696,117995703,117997204,117998860,117998865,117999163,118000445,118003668,118003673,118007417,118007423,118010935,118018403,118018409,118021315,118021331,118027077,118029473,118029479,118043880,118043885,118044536,118048944,118048950,118057575,118057581,118074363,118090706,118090714,118094534,118094539,118095211,118095216,118108906,118108911,118134909,118134916,118141347,118141353,118142225,118142230,118146395,118155411,118165448,118165464,118168556,118168572,118171214,118172011,118179261,118180051,118180056,118181389,118181395,118184675,118219809,118219815,118219894,118219910,118219914,118222578,118227602,118227608,118237458,118237474,118240363,118240370,118242443,118242448,118246247,118254619,118255415,118255420,118256780,118256787,118261058,118261064,118269183,118275356,118281154,118281162,118287353,118287359,118311122,118311127,118313303,118313319,118347706,118348084,118349356,118364657,118367637,118367642,118367791,118373667,118392000,118392001,118396729,118396734,118413598,118413604,118441886,118441892,118460103,118460109,118460119,118460125,118464226,118464232,118465094,118465100,118474113,118474120,118497529,118497535,118509494,118513388,118513396,118513953,118513958,118515099,118515104,118515459,118515465,118517992,118517997,118532140,118532142,118568849,118568856,118568974,118568981,118576741,118589909,118589915,118594981,118594986,118599872,118599880,118602071,118602079,118608947,118608953,118630535,118630551],"crc":1,"cvi":[3313321,3330196,3362822,3398779,3399623,3399776,3399885]},"drive_url":"//drive.google.com/u/0?usp\u003dsheets_web","docs-liap":"/naLogImpressions","docs-sup":"/spreadsheets/u/0"}; _docs_flag_cek='7VQzZefJ4TCUkNoKmIq5jA\x3d\x3d'; if (window['DOCS_timing']) {DOCS_timing['ifdld']=new Date().getTime();}</script><script nonce="">document.addEventListener('DOMContentLoaded', init);</script></head><body class="docs-gm"><div id="top-bar"><div id="doc-title"><span class="name">품목별 재고 : 발주판단</span></div></div><div id="sheets-viewport" class="widget-viewport"><div class="widget-sheet-container"><iframe id="pageswitcher-content" frameborder="0" marginheight="0" marginwidth="0" src="./품목별 재고 - Google Drive_files/sheet.html" style="display: block; width: 100%; height: 100%;"></iframe></div><div style="height: 26px; background-color: rgb(238, 238, 238);"><div class="switcherOuter"><div class="switcherContent"><table class="switcherTable"><tbody><tr><td class="switcherItemActive">발주판단</td></tr></tbody></table></div><div class="switcherArrows"><div class="switcherArrow"><b>&gt;</b></div><div class="switcherArrow"><b>&lt;</b></div></div></div></div></div></body></html>
+/* Layout */
+.app { display: grid; grid-template-rows: auto 1fr; min-height: 100vh; }
+
+/* Header */
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 56px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky; top: 0; z-index: 100;
+}
+.header-left { display: flex; align-items: center; gap: 1.5rem; }
+.logo { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--text); letter-spacing: .02em; }
+.logo span { color: var(--accent); }
+.tabs { display: flex; gap: 2px; }
+.tab { font-size: 12px; padding: 5px 14px; border-radius: 6px; border: none; background: transparent; color: var(--text2); cursor: pointer; font-family: var(--sans); transition: all .15s; }
+.tab:hover { color: var(--text); background: var(--bg3); }
+.tab.on { background: var(--bg3); color: var(--text); }
+.header-right { display: flex; align-items: center; gap: 10px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--text3); }
+.status-dot.ok { background: var(--good); box-shadow: 0 0 6px var(--good); }
+.status-text { font-size: 11px; color: var(--text2); font-family: var(--mono); }
+.refresh-btn { font-size: 11px; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border2); background: transparent; color: var(--text2); cursor: pointer; font-family: var(--sans); transition: all .15s; }
+.refresh-btn:hover { color: var(--text); border-color: var(--accent); }
+
+/* Main */
+main { padding: 1.5rem 2rem 2rem; max-width: 1280px; margin: 0 auto; width: 100%; }
+
+/* Setup screen */
+.setup-wrap { max-width: 640px; margin: 4rem auto; }
+.setup-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: var(--radius-lg); padding: 2rem; }
+.setup-title { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.setup-sub { font-size: 12px; color: var(--text2); margin-bottom: 1.5rem; line-height: 1.7; }
+.setup-steps { counter-reset: step; margin-bottom: 1.5rem; }
+.step { display: flex; gap: 12px; margin-bottom: 14px; align-items: flex-start; }
+.step-num { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; font-family: var(--mono); margin-top: 1px; }
+.step-body { flex: 1; }
+.step-label { font-size: 12px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.step-desc { font-size: 11px; color: var(--text2); line-height: 1.6; }
+.step-desc code { font-family: var(--mono); font-size: 10px; background: var(--bg3); padding: 1px 5px; border-radius: 3px; color: var(--accent); }
+.url-input-wrap { display: flex; gap: 8px; margin-top: 1rem; }
+.url-input { flex: 1; font-size: 12px; padding: 8px 12px; border-radius: var(--radius); border: 1px solid var(--border2); background: var(--bg3); color: var(--text); font-family: var(--mono); outline: none; transition: border .15s; }
+.url-input:focus { border-color: var(--accent); }
+.url-input::placeholder { color: var(--text3); }
+.connect-btn { font-size: 12px; padding: 8px 18px; border-radius: var(--radius); border: none; background: var(--accent); color: #fff; cursor: pointer; font-family: var(--sans); font-weight: 500; white-space: nowrap; transition: opacity .15s; }
+.connect-btn:hover { opacity: .85; }
+.err-msg { font-size: 11px; color: var(--danger); margin-top: 8px; display: none; }
+.sheet-format { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.fmt-label { font-size: 11px; font-weight: 500; color: var(--text2); margin-bottom: 8px; letter-spacing: .05em; text-transform: uppercase; }
+.fmt-table { width: 100%; border-collapse: collapse; font-size: 11px; font-family: var(--mono); }
+.fmt-table th { background: var(--bg3); color: var(--text2); font-weight: 500; padding: 5px 8px; text-align: left; border: 1px solid var(--border); }
+.fmt-table td { padding: 4px 8px; color: var(--text); border: 1px solid var(--border); }
+.fmt-table tr:nth-child(odd) td { background: rgba(255,255,255,.02); }
+.section-sep { margin: 1rem 0 .75rem; padding: 4px 0; font-size: 10px; color: var(--text3); letter-spacing: .1em; text-transform: uppercase; font-family: var(--mono); }
+
+/* Dashboard */
+#tab-dash, #tab-trend { display: none; }
+#tab-dash.active, #tab-trend.active { display: block; }
+
+.slabel { font-size: 10px; font-weight: 500; color: var(--text3); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; font-family: var(--mono); }
+.mgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 1rem; }
+.mc { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: .9rem 1rem; transition: border-color .2s; }
+.mc:hover { border-color: var(--border2); }
+.mc-lbl { font-size: 10px; color: var(--text2); margin-bottom: 5px; font-family: var(--mono); letter-spacing: .03em; }
+.mc-val { font-size: 22px; font-weight: 500; color: var(--text); line-height: 1.15; font-family: var(--mono); }
+.mc-sub { font-size: 10px; color: var(--text3); margin-top: 3px; }
+.badge { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 20px; margin-top: 5px; font-family: var(--mono); }
+.b-up { background: rgba(45,212,160,.12); color: var(--good); }
+.b-down { background: rgba(240,85,85,.12); color: var(--danger); }
+.b-ok { background: rgba(79,143,255,.12); color: var(--accent); }
+.b-warn { background: rgba(240,169,68,.12); color: var(--warn); }
+.pbar-bg { background: var(--bg3); border-radius: 3px; height: 4px; margin-top: 8px; overflow: hidden; }
+.pbar-fill { height: 4px; border-radius: 3px; transition: width .6s ease; }
+
+.section { margin-bottom: 1.5rem; }
+.card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1rem 1.25rem; }
+
+/* Product rows */
+.prow { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.prow:last-child { border-bottom: none; }
+.prow-name { font-size: 12px; color: var(--text); min-width: 80px; }
+.prow-bar-bg { flex: 1; background: var(--bg3); border-radius: 3px; height: 5px; overflow: hidden; }
+.prow-bar-fill { height: 5px; border-radius: 3px; transition: width .5s ease; }
+.prow-qty { font-size: 12px; font-family: var(--mono); color: var(--text); min-width: 70px; text-align: right; }
+.prow-tgt { font-size: 10px; color: var(--text3); }
+.prow-sig { font-size: 10px; min-width: 36px; text-align: right; font-family: var(--mono); font-weight: 500; }
+.sig-hot { color: var(--danger); }
+.sig-low { color: var(--warn); }
+.sig-ok { color: var(--good); }
+.sig-norm { color: var(--text3); }
+
+/* Alerts */
+.alert { display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; border-radius: var(--radius); margin-bottom: 6px; font-size: 12px; border-left: 3px solid; }
+.alert-danger { background: rgba(240,85,85,.08); border-color: var(--danger); color: #f4a0a0; }
+.alert-warn { background: rgba(240,169,68,.08); border-color: var(--warn); color: #f5cc80; }
+.alert-info { background: rgba(79,143,255,.08); border-color: var(--accent); color: #9dbfff; }
+.alert-good { background: rgba(45,212,160,.08); border-color: var(--good); color: #7de8c8; }
+.alert-icon { font-size: 14px; flex-shrink: 0; margin-top: -1px; }
+
+/* Charts */
+.chart-wrap { position: relative; }
+.chart-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11px; color: var(--text2); margin-bottom: 10px; font-family: var(--mono); }
+.chart-legend span { display: flex; align-items: center; gap: 5px; }
+.legend-sq { width: 10px; height: 4px; border-radius: 2px; }
+
+/* Loading */
+.loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem; gap: 1rem; }
+.spinner { width: 28px; height: 28px; border: 2px solid var(--border2); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-size: 12px; color: var(--text2); font-family: var(--mono); }
+
+/* Divider */
+.row-divider { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 700px) { .row-divider { grid-template-columns: 1fr; } .mgrid { grid-template-columns: repeat(2, 1fr); } main { padding: 1rem; } header { padding: 0 1rem; } }
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="header-left">
+    <span class="logo">발주<span>.</span>대시보드</span>
+    <div class="tabs" id="nav-tabs" style="display:none">
+      <button class="tab on" onclick="goTab('dash')">현황</button>
+      <button class="tab" onclick="goTab('trend')">추이</button>
+      <button class="tab" onclick="goTab('setup')">설정</button>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="status-dot" id="status-dot"></div>
+    <span class="status-text" id="status-text">연결 대기</span>
+    <button class="refresh-btn" id="refresh-btn" onclick="loadData()" style="display:none">↺ 새로고침</button>
+  </div>
+</header>
+<main>
+  <!-- Setup -->
+  <div id="tab-setup">
+    <div class="setup-wrap">
+      <div class="setup-card">
+        <div class="setup-title">구글 시트 연동 설정</div>
+        <div class="setup-sub">구글 스프레드시트를 웹에 게시하면, 이 대시보드가 자동으로 데이터를 읽어옵니다.<br>한 번 설정하면 시트를 업데이트할 때마다 새로고침만 하면 됩니다.</div>
+        <div class="setup-steps">
+          <div class="step"><div class="step-num">1</div><div class="step-body"><div class="step-label">구글 시트 형식 맞추기</div><div class="step-desc">아래 표 형식에 맞게 시트를 작성하세요. <strong>시트1</strong>에 월 기준 데이터, <strong>시트2</strong>에 제품 데이터를 입력합니다.</div></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-body"><div class="step-label">웹에 게시</div><div class="step-desc">구글 시트 메뉴 → <code>파일</code> → <code>웹에 게시</code> → 각 시트를 <code>CSV</code>로 선택 → <code>게시</code> 클릭. URL 두 개가 생성됩니다.</div></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-body"><div class="step-label">URL 입력 후 연결</div><div class="step-desc">생성된 URL을 아래에 붙여넣고 연결하세요.</div></div></div>
+        </div>
+        <div class="url-input-wrap">
+          <input class="url-input" id="url1" placeholder="시트1 CSV URL (월 기준 데이터)">
+        </div>
+        <div class="url-input-wrap" style="margin-top:6px">
+          <input class="url-input" id="url2" placeholder="시트2 CSV URL (제품별 데이터)">
+          <button class="connect-btn" onclick="connect()">연결하기 →</button>
+        </div>
+        <div class="err-msg" id="err-msg"></div>
+
+        <div class="sheet-format">
+          <div class="fmt-label">시트1 — 월 기준 데이터 (A1부터 입력)</div>
+          <table class="fmt-table">
+            <tr><th>A열</th><th>B열</th><th>C열</th><th>D열</th><th>E열</th><th>F열</th></tr>
+            <tr><td>목표월매출</td><td>기준발주예산</td><td>총일수</td><td>경과일수</td><td>누적매출</td><td>집행발주비</td></tr>
+            <tr><td>18000</td><td>3750</td><td>30</td><td>17</td><td>8640</td><td>2126</td></tr>
+          </table>
+          <div class="section-sep">· · ·</div>
+          <div class="fmt-label">시트2 — 제품별 데이터 (A1부터 입력)</div>
+          <table class="fmt-table">
+            <tr><th>A열</th><th>B열</th><th>C열</th></tr>
+            <tr><td>제품명</td><td>일평균실적</td><td>일평균목표</td></tr>
+            <tr><td>제품A</td><td>42</td><td>50</td></tr>
+            <tr><td>제품B</td><td>38</td><td>35</td></tr>
+            <tr><td>제품C</td><td>15</td><td>25</td></tr>
+            <tr><td>제품D</td><td>61</td><td>55</td></tr>
+          </table>
+          <div style="margin-top:10px;font-size:11px;color:var(--text3)">* 숫자 단위: 만원 / 수량: 개 · 헤더행 포함 필수</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="tab-dash">
+    <div id="dash-loading" class="loading"><div class="spinner"></div><div class="loading-text">데이터 불러오는 중...</div></div>
+    <div id="dash-content" style="display:none">
+      <div class="section">
+        <div class="slabel">월 매출 달성 현황</div>
+        <div class="mgrid">
+          <div class="mc"><div class="mc-lbl">목표 월 매출</div><div class="mc-val" id="d-target">—</div><div class="mc-sub" id="d-budget-base">—</div></div>
+          <div class="mc"><div class="mc-lbl">현재 누적 매출</div><div class="mc-val" id="d-current">—</div><div class="mc-sub" id="d-elapsed">—</div></div>
+          <div class="mc">
+            <div class="mc-lbl">목표 달성률</div>
+            <div class="mc-val" id="d-rate">—</div>
+            <div id="d-rate-badge" class="badge b-ok">—</div>
+            <div class="pbar-bg"><div class="pbar-fill" id="d-rate-bar" style="width:0%;background:var(--accent)"></div></div>
+          </div>
+          <div class="mc"><div class="mc-lbl">일평균 매출</div><div class="mc-val" id="d-daily-act">—</div><div class="mc-sub" id="d-daily-tgt">목표 — 만/일</div></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="slabel">발주 예산 현황</div>
+        <div class="mgrid">
+          <div class="mc"><div class="mc-lbl">기준 발주예산</div><div class="mc-val" id="d-budget">—</div><div class="mc-sub">확정 집행 가능</div></div>
+          <div class="mc"><div class="mc-lbl">집행 발주비</div><div class="mc-val" id="d-used">—</div><div class="mc-sub" id="d-remain">—</div></div>
+          <div class="mc">
+            <div class="mc-lbl">발주비 소진율</div>
+            <div class="mc-val" id="d-used-rate">—</div>
+            <div id="d-used-badge" class="badge b-ok">—</div>
+            <div class="pbar-bg"><div class="pbar-fill" id="d-used-bar" style="width:0%;background:var(--good)"></div></div>
+          </div>
+          <div class="mc"><div class="mc-lbl">추가 가용 발주비</div><div class="mc-val" id="d-extra">—</div><div id="d-extra-badge" class="badge b-ok">—</div></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="slabel">페이스 기반 전망</div>
+        <div class="mgrid">
+          <div class="mc"><div class="mc-lbl">월말 예상 매출</div><div class="mc-val" id="d-proj">—</div><div class="mc-sub" id="d-proj-diff">—</div></div>
+          <div class="mc"><div class="mc-lbl">목표달성 필요 잔여 일매출</div><div class="mc-val" id="d-need">—</div><div class="mc-sub" id="d-remain-days">—</div></div>
+          <div class="mc"><div class="mc-lbl">페이스 기반 권고 발주한도</div><div class="mc-val" id="d-adj">—</div><div id="d-adj-badge" class="badge b-ok">—</div></div>
+          <div class="mc"><div class="mc-lbl">발주비 / 매출 비율</div><div class="mc-val" id="d-ratio">—</div><div class="mc-sub">목표 ~21%</div></div>
+        </div>
+      </div>
+      <div id="alert-area" class="section"></div>
+      <div class="section">
+        <div class="slabel">주력 제품 일평균 판매수량</div>
+        <div class="card"><div id="prod-rows"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trend -->
+  <div id="tab-trend">
+    <div id="trend-loading" class="loading"><div class="spinner"></div><div class="loading-text">차트 구성 중...</div></div>
+    <div id="trend-content" style="display:none">
+      <div class="section">
+        <div class="card">
+          <div style="font-size:13px;font-weight:500;margin-bottom:10px;color:var(--text)">일별 누적 매출 vs 목표 궤도</div>
+          <div class="chart-legend">
+            <span><span class="legend-sq" style="background:var(--text3)"></span>목표 궤도</span>
+            <span><span class="legend-sq" style="background:var(--accent)"></span>실제 누적 (추정)</span>
+          </div>
+          <div class="chart-wrap" style="height:220px"><canvas id="chart-trend"></canvas></div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="card">
+          <div style="font-size:13px;font-weight:500;margin-bottom:10px;color:var(--text)">제품별 일평균 판매수량 실적 vs 목표</div>
+          <div class="chart-legend">
+            <span><span class="legend-sq" style="background:var(--text3)"></span>목표</span>
+            <span><span class="legend-sq" style="background:var(--accent)"></span>실적</span>
+          </div>
+          <div class="chart-wrap" id="prod-chart-wrap" style="height:220px"><canvas id="chart-prod"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<script>
+const LS_KEY = 'order_dash_urls';
+let S = null;
+let chartT = null, chartP = null;
+let currentTab = 'setup';
+
+// ---- Persistence ----
+function saveURLs(u1, u2) { try { localStorage.setItem(LS_KEY, JSON.stringify({u1,u2})); } catch(e){} }
+function loadURLs() { try { return JSON.parse(localStorage.getItem(LS_KEY)||'null'); } catch(e){ return null; } }
+
+// ---- Tab ----
+function goTab(t) {
+  currentTab = t;
+  ['dash','trend','setup'].forEach(id => {
+    document.getElementById('tab-'+id).style.display = id===t ? '' : 'none';
+  });
+  document.querySelectorAll('.tab').forEach((b,i) => b.classList.toggle('on', ['dash','trend','setup'][i]===t));
+  if (t==='trend' && S) renderTrend();
+  if (t==='dash' && S) { document.getElementById('dash-loading').style.display='none'; document.getElementById('dash-content').style.display=''; }
+}
+
+// ---- Proxy fetch (CORS bypass) ----
+async function fetchCSV(url) {
+  const proxies = [
+    u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
+    u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
+    u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
+    u => u,
+  ];
+  for (const proxy of proxies) {
+    try {
+      const r = await fetch(proxy(url), { cache: 'no-cache' });
+      if (r.ok) { const t = await r.text(); if (t.length > 5 && !t.includes('<html')) return t; }
+    } catch(e) {}
+  }
+  throw new Error('URL에서 데이터를 가져올 수 없습니다. URL이 올바른지, 웹에 게시되었는지 확인해 주세요.');
+}
+
+function parseCSVRows(text) {
+  return text.trim().split(/\r?\n/).map(l => l.split(',').map(c => c.trim().replace(/^"|"$/g,'')));
+}
+
+async function loadData() {
+  const saved = loadURLs();
+  if (!saved) return;
+  const { u1, u2 } = saved;
+  setStatus('loading');
+  try {
+    const [t1, t2] = await Promise.all([fetchCSV(u1), fetchCSV(u2)]);
+    const r1 = parseCSVRows(t1);
+    // Sheet1: row0=headers, row1=values
+    const h = r1[0], v = r1[1] || [];
+    const gi = (key) => { const i = h.findIndex(c => c.includes(key)); return i>=0 ? parseFloat(v[i])||0 : 0; };
+    const target = gi('목표월매출') || gi('목표') || gi('월매출');
+    const budget = gi('기준발주예산') || gi('발주예산') || gi('예산');
+    const totalDays = gi('총일수') || 30;
+    const elapsed = gi('경과일수') || gi('경과');
+    const current = gi('누적매출') || gi('누적');
+    const budgetUsed = gi('집행발주비') || gi('집행');
+    if (!target || !budget) throw new Error('시트1에서 목표월매출, 기준발주예산을 찾을 수 없습니다. 헤더를 확인해 주세요.');
+    // Sheet2: row0=headers, rows 1+
+    const r2 = parseCSVRows(t2);
+    const h2 = r2[0];
+    const ni = h2.findIndex(c=>c.includes('제품')||c.includes('이름')||c.includes('name'));
+    const ai = h2.findIndex(c=>c.includes('실적')||c.includes('실'));
+    const ti = h2.findIndex(c=>c.includes('목표'));
+    if (ni<0||ai<0||ti<0) throw new Error('시트2에서 제품명/일평균실적/일평균목표 컬럼을 찾을 수 없습니다.');
+    const products = r2.slice(1).filter(r=>r[ni]&&r[ni]!=='').map(r=>({
+      name: r[ni], actual: parseFloat(r[ai])||0, target: parseFloat(r[ti])||0
+    }));
+    S = { target, budget, totalDays, elapsed, current, budgetUsed, products };
+    setStatus('ok');
+    renderDash();
+    if (currentTab === 'setup') goTab('dash');
+    else if (currentTab === 'trend') renderTrend();
+  } catch(err) {
+    setStatus('error', err.message);
+  }
+}
+
+function setStatus(state, msg) {
+  const dot = document.getElementById('status-dot');
+  const txt = document.getElementById('status-text');
+  const now = new Date();
+  const ts = now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+  if (state==='ok') { dot.className='status-dot ok'; txt.textContent='연결됨 · '+ts+' 기준'; }
+  else if (state==='loading') { dot.className='status-dot'; txt.textContent='불러오는 중...'; }
+  else { dot.className='status-dot'; txt.style.color='var(--danger)'; txt.textContent='오류: '+(msg||'연결 실패'); }
+}
+
+async function connect() {
+  const u1 = document.getElementById('url1').value.trim();
+  const u2 = document.getElementById('url2').value.trim();
+  const err = document.getElementById('err-msg');
+  if (!u1 || !u2) { err.textContent = 'URL 두 개를 모두 입력해 주세요.'; err.style.display='block'; return; }
+  err.style.display='none';
+  saveURLs(u1, u2);
+  document.getElementById('nav-tabs').style.display='flex';
+  document.getElementById('refresh-btn').style.display='';
+  goTab('dash');
+  document.getElementById('dash-loading').style.display='flex';
+  document.getElementById('dash-content').style.display='none';
+  await loadData();
+}
+
+// ---- Compute ----
+function compute() {
+  const { target, budget, totalDays, elapsed, current, budgetUsed } = S;
+  const remain = totalDays - elapsed;
+  const dailyTarget = target / totalDays;
+  const dailyActual = elapsed > 0 ? current / elapsed : 0;
+  const projected = current + dailyActual * remain;
+  const achieveRate = target > 0 ? current / target : 0;
+  const paceRate = dailyTarget > 0 ? dailyActual / dailyTarget : 0;
+  const adjBudget = Math.round(budget * Math.min(paceRate, 1.25));
+  const extraBudget = paceRate > 1.08 ? Math.round(budget * (paceRate - 1)) : 0;
+  const needDaily = remain > 0 ? (target - current) / remain : 0;
+  const budgetUsedRate = budget > 0 ? budgetUsed / budget : 0;
+  const actualRatio = current > 0 ? budgetUsed / current : 0;
+  return { remain, dailyTarget, dailyActual, projected, achieveRate, paceRate, adjBudget, extraBudget, needDaily, budgetUsedRate, actualRatio };
+}
+
+function w(n) { return Math.round(n).toLocaleString('ko-KR') + '만'; }
+function pct(n) { return (n * 100).toFixed(1) + '%'; }
+
+// ---- Render Dashboard ----
+function renderDash() {
+  if (!S) return;
+  document.getElementById('dash-loading').style.display='none';
+  document.getElementById('dash-content').style.display='';
+  const c = compute();
+  const { target, budget, totalDays, elapsed, current, budgetUsed, products } = S;
+
+  document.getElementById('d-target').textContent = w(target);
+  document.getElementById('d-budget-base').textContent = '기준발주예산 ' + w(budget);
+  document.getElementById('d-current').textContent = w(current);
+  document.getElementById('d-elapsed').textContent = elapsed + '일 경과 / ' + totalDays + '일';
+  document.getElementById('d-rate').textContent = pct(c.achieveRate);
+  const rb = document.getElementById('d-rate-bar');
+  rb.style.width = Math.min(c.achieveRate*100,100)+'%';
+  const rbadge = document.getElementById('d-rate-badge');
+  if(c.paceRate>=1.08){rb.style.background='var(--good)';rbadge.textContent='◆ 초과 달성 중';rbadge.className='badge b-up';}
+  else if(c.paceRate>=0.88){rb.style.background='var(--accent)';rbadge.textContent='◆ 정상 진행';rbadge.className='badge b-ok';}
+  else{rb.style.background='var(--danger)';rbadge.textContent='◆ 매출 부진';rbadge.className='badge b-down';}
+
+  document.getElementById('d-daily-act').textContent = w(Math.round(c.dailyActual));
+  document.getElementById('d-daily-tgt').textContent = '목표 ' + w(Math.round(c.dailyTarget)) + ' / 일';
+  document.getElementById('d-budget').textContent = w(budget);
+  document.getElementById('d-used').textContent = w(budgetUsed);
+  document.getElementById('d-remain').textContent = '잔여 ' + w(budget - budgetUsed);
+  document.getElementById('d-used-rate').textContent = pct(c.budgetUsedRate);
+  const ub = document.getElementById('d-used-bar');
+  ub.style.width = Math.min(c.budgetUsedRate*100,100)+'%';
+  const ubadge = document.getElementById('d-used-badge');
+  const budgetPace = elapsed/totalDays;
+  if(c.budgetUsedRate > budgetPace+0.15){ub.style.background='var(--danger)';ubadge.textContent='◆ 소진 빠름';ubadge.className='badge b-down';}
+  else if(c.budgetUsedRate > budgetPace+0.05){ub.style.background='var(--warn)';ubadge.textContent='◆ 다소 빠름';ubadge.className='badge b-warn';}
+  else{ub.style.background='var(--good)';ubadge.textContent='◆ 적정';ubadge.className='badge b-up';}
+
+  document.getElementById('d-extra').textContent = c.extraBudget > 0 ? '+'+w(c.extraBudget) : '없음';
+  const eb = document.getElementById('d-extra-badge');
+  if(c.extraBudget>0){eb.textContent='◆ 추가 활용 가능';eb.className='badge b-up';}
+  else if(c.paceRate<0.88){eb.textContent='◆ 긴축 검토';eb.className='badge b-down';}
+  else{eb.textContent='◆ 현상 유지';eb.className='badge b-ok';}
+
+  const proj = Math.round(c.projected);
+  document.getElementById('d-proj').textContent = w(proj);
+  const diff = proj - target;
+  const pd = document.getElementById('d-proj-diff');
+  pd.textContent = (diff>=0?'목표 초과 +':'목표 미달 ') + w(Math.abs(diff));
+  pd.style.color = diff>=0 ? 'var(--good)' : 'var(--danger)';
+  document.getElementById('d-need').textContent = c.remain>0 ? w(Math.round(c.needDaily)) : '—';
+  document.getElementById('d-remain-days').textContent = '잔여 '+c.remain+'일';
+  document.getElementById('d-adj').textContent = w(c.adjBudget);
+  const ab = document.getElementById('d-adj-badge');
+  if(c.paceRate>=1.08){ab.textContent='◆ 증액 여력';ab.className='badge b-up';}
+  else if(c.paceRate>=0.88){ab.textContent='◆ 유지';ab.className='badge b-ok';}
+  else{ab.textContent='◆ 조정 필요';ab.className='badge b-down';}
+  document.getElementById('d-ratio').textContent = pct(c.actualRatio);
+
+  const alerts = [];
+  if(c.paceRate<0.75) alerts.push({t:'danger',icon:'⚠',m:'매출 페이스가 목표의 75% 미만입니다. 발주예산 긴축 및 팀 협의가 시급합니다.'});
+  else if(c.paceRate<0.88) alerts.push({t:'warn',icon:'△',m:'매출이 목표 대비 다소 부진합니다. 발주 집행 속도를 점검하세요.'});
+  if(c.paceRate>1.1) alerts.push({t:'good',icon:'↑',m:'매출이 목표를 초과 달성 중입니다. 추가 발주 여력이 생겼을 수 있습니다.'});
+  if(c.needDaily > c.dailyTarget*1.35) alerts.push({t:'danger',icon:'⚠',m:'목표 달성을 위해 남은 기간 일매출이 평소의 135% 이상 필요합니다.'});
+  const hot = products.filter(p=>p.actual>p.target*1.25);
+  const cold = products.filter(p=>p.actual<p.target*0.75);
+  if(c.budgetUsedRate > elapsed/totalDays+0.2) alerts.push({t:'warn',icon:'△',m:'발주비 소진이 경과 시간 대비 20%p 이상 앞서 있습니다. 잔여 발주 조정이 필요합니다.'});
+  if(hot.length) alerts.push({t:'warn',icon:'↑',m:'판매 급증 제품: '+hot.map(p=>p.name).join(', ')+' — 재고 부족 전 추가 발주 검토'});
+  if(cold.length) alerts.push({t:'info',icon:'↓',m:'판매 급감 제품: '+cold.map(p=>p.name).join(', ')+' — 발주량 축소 또는 품절 예상 시기 재검토'});
+  document.getElementById('alert-area').innerHTML = alerts.length
+    ? '<div class="slabel">주의 및 알림</div>' + alerts.map(a=>`<div class="alert alert-${a.t}"><span class="alert-icon">${a.icon}</span>${a.m}</div>`).join('')
+    : '';
+
+  const maxT = Math.max(...products.map(p=>p.target),1);
+  document.getElementById('prod-rows').innerHTML = products.map(p=>{
+    const r = p.actual / p.target;
+    let bc='var(--accent)', sig='정상', sc='sig-norm';
+    if(r>1.25){bc='var(--danger)';sig='급증 ↑';sc='sig-hot';}
+    else if(r>1.05){bc='var(--good)';sig='초과 ↑';sc='sig-ok';}
+    else if(r<0.75){bc='var(--warn)';sig='급감 ↓';sc='sig-low';}
+    else if(r<0.92){bc='var(--warn)';sig='부진 ↓';sc='sig-low';}
+    const bw = Math.min((p.actual/maxT)*100,100);
+    return `<div class="prow">
+      <span class="prow-name">${p.name}</span>
+      <div class="prow-bar-bg"><div class="prow-bar-fill" style="width:${bw}%;background:${bc}"></div></div>
+      <span class="prow-qty">${p.actual}<span class="prow-tgt"> / ${p.target}</span></span>
+      <span class="prow-sig ${sc}">${sig}</span>
+    </div>`;
+  }).join('');
+}
+
+// ---- Render Trend ----
+function renderTrend() {
+  if (!S) return;
+  document.getElementById('trend-loading').style.display='none';
+  document.getElementById('trend-content').style.display='';
+  const {target, totalDays, elapsed, current, products} = S;
+  const labels = Array.from({length: elapsed}, (_,i)=>(i+1)+'일');
+  const tgtLine = labels.map((_,i)=>Math.round(target/totalDays*(i+1)));
+  const actLine = labels.map((_,i)=>{
+    const base = current*(i+1)/elapsed;
+    const n = (Math.sin(i*2.1)*0.07 + Math.cos(i*1.3)*0.04) * (current/elapsed);
+    return Math.max(0, Math.round(base+n));
+  });
+  actLine[elapsed-1] = current;
+
+  Chart.defaults.color = '#555a6b';
+  Chart.defaults.borderColor = 'rgba(255,255,255,0.05)';
+  if(chartT) chartT.destroy();
+  chartT = new Chart(document.getElementById('chart-trend'), {
+    type:'line',
+    data:{labels, datasets:[
+      {label:'목표 궤도', data:tgtLine, borderColor:'#555a6b', borderDash:[5,3], borderWidth:1.5, pointRadius:0, tension:.1, fill:false},
+      {label:'실제 누적', data:actLine, borderColor:'#4f8fff', borderWidth:2, pointRadius:2, pointBackgroundColor:'#4f8fff', tension:.3, fill:false}
+    ]},
+    options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{font:{size:10},maxRotation:0,autoSkip:true,maxTicksLimit:10}},
+        y:{ticks:{font:{size:10}, callback:v=>(v/10000).toFixed(1)+'억'}}
+      }
+    }
+  });
+
+  document.getElementById('prod-chart-wrap').style.height = Math.max(products.length*52+60,180)+'px';
+  if(chartP) chartP.destroy();
+  chartP = new Chart(document.getElementById('chart-prod'), {
+    type:'bar',
+    data:{
+      labels: products.map(p=>p.name),
+      datasets:[
+        {label:'목표', data:products.map(p=>p.target), backgroundColor:'rgba(255,255,255,0.1)', borderRadius:3},
+        {label:'실적', data:products.map(p=>p.actual), backgroundColor:products.map(p=>p.actual>p.target*1.05?'#2dd4a0':p.actual<p.target*0.92?'#f05555':'#4f8fff'), borderRadius:3}
+      ]
+    },
+    options:{indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}},
+      scales:{
+        x:{ticks:{font:{size:10}}},
+        y:{ticks:{font:{size:11}}}
+      }
+    }
+  });
+}
+
+// ---- Init ----
+(function init() {
+  const saved = loadURLs();
+  if (saved) {
+    document.getElementById('url1').value = saved.u1||'';
+    document.getElementById('url2').value = saved.u2||'';
+    document.getElementById('nav-tabs').style.display='flex';
+    document.getElementById('refresh-btn').style.display='';
+    goTab('dash');
+    loadData();
+  } else {
+    document.getElementById('tab-setup').style.display='';
+    document.getElementById('tab-dash').style.display='none';
+    document.getElementById('tab-trend').style.display='none';
+  }
+})();
+</script>
+</body>
+</html>
