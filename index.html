@@ -10,181 +10,79 @@
 
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background: #f4f4f0;
-      color: #1a1a1a;
+      background: #0f0f11;
+      color: #e8e8e8;
       min-height: 100vh;
       padding: 32px 24px;
     }
 
     .wrap { max-width: 960px; margin: 0 auto; }
 
-    /* 헤더 */
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    .header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; color: #f0f0f0; }
     .header-r { display: flex; align-items: center; gap: 10px; }
-    .date-txt { font-size: 13px; color: #6b6b6b; }
-    .btn-refresh {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 50px;
-      padding: 5px 13px;
-      font-size: 12px;
-      font-family: inherit;
-      cursor: pointer;
-      color: #555;
-    }
-    .btn-refresh:hover { border-color: #999; color: #111; }
+    .date-txt { font-size: 13px; color: #555; }
+    .btn-refresh { background: #1e1e22; border: 1px solid #2e2e36; border-radius: 50px; padding: 5px 13px; font-size: 12px; font-family: inherit; cursor: pointer; color: #888; transition: all 0.15s; }
+    .btn-refresh:hover { border-color: #555; color: #ccc; }
 
-    /* 탭 */
     .tabs { display: flex; gap: 8px; margin-bottom: 26px; }
-    .tab {
-      padding: 7px 18px;
-      border: 1.5px solid #e0e0da;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      background: #fff;
-      color: #6b6b6b;
-      font-family: inherit;
-      transition: all 0.15s;
-    }
-    .tab:hover { border-color: #aaa; color: #1a1a1a; }
-    .tab.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    .tab { padding: 7px 18px; border: 1.5px solid #2e2e36; border-radius: 50px; font-size: 13px; font-weight: 500; cursor: pointer; background: #1e1e22; color: #666; font-family: inherit; transition: all 0.15s; }
+    .tab:hover { border-color: #555; color: #ccc; }
+    .tab.active { background: #e8e8e8; color: #0f0f11; border-color: #e8e8e8; font-weight: 700; }
     .panel { display: none; }
     .panel.on { display: block; }
 
-    /* 섹션 */
     .sec { margin-bottom: 22px; }
-    .sec-lbl { font-size: 13px; color: #6b6b6b; font-weight: 500; margin-bottom: 10px; }
+    .sec-lbl { font-size: 13px; color: #4a4a55; font-weight: 500; margin-bottom: 10px; }
 
-    /* KPI 4열 */
     .kpi4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
     @media (max-width:680px) { .kpi4 { grid-template-columns: repeat(2,1fr); } }
 
-    .card {
-      background: #fff;
-      border: 1px solid #e8e8e4;
-      border-radius: 12px;
-      padding: 18px 16px 14px;
-    }
-    .c-lbl { font-size: 12px; color: #6b6b6b; font-weight: 500; margin-bottom: 5px; }
-    .c-val {
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: -0.7px;
-      line-height: 1.1;
-      color: #1a1a1a;
-    }
-    .c-val.r { color: #ef4444; }
-    .c-sub { font-size: 11px; color: #9b9b9b; margin-top: 4px; }
+    .card { background: #18181d; border: 1px solid #26262e; border-radius: 12px; padding: 18px 16px 14px; }
+    .c-lbl { font-size: 11px; color: #555; font-weight: 500; margin-bottom: 6px; line-height: 1.5; }
+    .c-val { font-size: 26px; font-weight: 700; letter-spacing: -0.7px; line-height: 1.1; color: #e8e8e8; }
+    .c-val.r { color: #f87171; }
+    .c-sub { font-size: 11px; color: #4a4a55; margin-top: 4px; }
     .c-tag { font-size: 12px; font-weight: 600; margin-top: 3px; }
-    .c-tag.r { color: #ef4444; }
-    .c-tag.g { color: #16a34a; }
+    .c-tag.r { color: #f87171; }
+    .c-tag.g { color: #4ade80; }
 
-    /* 프로그레스 */
-    .prog { margin-top: 9px; height: 7px; background: #e8e8e4; border-radius: 4px; overflow: hidden; }
+    .prog { margin-top: 9px; height: 7px; background: #26262e; border-radius: 4px; overflow: hidden; }
     .prog-bar { height: 100%; border-radius: 4px; transition: width .7s cubic-bezier(.4,0,.2,1); }
 
-    /* 알림 */
-    .alert {
-      border-radius: 8px;
-      padding: 12px 15px;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 10px;
-      line-height: 1.55;
-      border-left: 3px solid;
-    }
-    .alert.r { background: #fef2f2; border-color: #ef4444; color: #dc2626; }
-    .alert.b { background: #eff6ff; border-color: #2563eb; color: #2563eb; }
+    .alert { border-radius: 8px; padding: 12px 15px; font-size: 13px; font-weight: 500; margin-bottom: 10px; line-height: 1.55; border-left: 3px solid; }
+    .alert.r { background: #2a1212; border-color: #f87171; color: #f87171; }
+    .alert.b { background: #0e1a2d; border-color: #60a5fa; color: #60a5fa; }
 
-    /* 제품 리스트 */
-    .prod-card {
-      background: #fff;
-      border: 1px solid #e8e8e4;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .prod-row {
-      display: flex;
-      align-items: center;
-      padding: 13px 20px;
-      border-bottom: 1px solid #f0f0ec;
-      gap: 14px;
-    }
+    .prod-card { background: #18181d; border: 1px solid #26262e; border-radius: 12px; overflow: hidden; }
+    .prod-row { display: flex; align-items: center; padding: 13px 20px; border-bottom: 1px solid #1e1e24; gap: 14px; }
     .prod-row:last-child { border-bottom: none; }
-    .prod-name { width: 148px; flex-shrink: 0; font-size: 14px; font-weight: 500; }
+    .prod-name { width: 148px; flex-shrink: 0; font-size: 14px; font-weight: 500; color: #d0d0d0; }
     .prod-bar-wrap { flex: 1; min-width: 0; }
-    .prod-bar-bg { height: 8px; background: #eeeeee; border-radius: 4px; overflow: hidden; }
+    .prod-bar-bg { height: 8px; background: #26262e; border-radius: 4px; overflow: hidden; }
     .prod-bar-fill { height: 100%; border-radius: 4px; transition: width .7s cubic-bezier(.4,0,.2,1); }
-    .prod-qty { width: 66px; flex-shrink: 0; font-size: 13px; font-weight: 600; text-align: right; }
-    .prod-qty em { font-style: normal; font-weight: 400; color: #9b9b9b; }
-    .badge {
-      flex-shrink: 0;
-      width: 40px;
-      text-align: center;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 0;
-      border-radius: 50px;
-    }
-    .badge.r  { background: #fef2f2; color: #ef4444; }
-    .badge.g  { background: #f0fdf4; color: #16a34a; }
-    .badge.am { background: #fffbeb; color: #d97706; }
+    .prod-qty { width: 66px; flex-shrink: 0; font-size: 13px; font-weight: 600; text-align: right; color: #d0d0d0; }
+    .prod-qty em { font-style: normal; font-weight: 400; color: #4a4a55; }
+    .badge { flex-shrink: 0; width: 40px; text-align: center; font-size: 11px; font-weight: 700; padding: 3px 0; border-radius: 50px; }
+    .badge.r  { background: #2a1212; color: #f87171; }
+    .badge.g  { background: #0d2a18; color: #4ade80; }
+    .badge.am { background: #2a1e00; color: #fbbf24; }
 
-    /* 추가 지표 */
     .bot2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .bot-card {
-      background: #fff;
-      border: 1px solid #e8e8e4;
-      border-radius: 12px;
-      padding: 18px 16px;
-    }
-    .bot-lbl { font-size: 12px; color: #6b6b6b; margin-bottom: 5px; }
-    .bot-val { font-size: 26px; font-weight: 700; letter-spacing: -0.7px; }
-    .bot-sub { font-size: 11px; color: #9b9b9b; margin-top: 4px; }
+    .bot-card { background: #18181d; border: 1px solid #26262e; border-radius: 12px; padding: 18px 16px; }
+    .bot-lbl { font-size: 12px; color: #555; margin-bottom: 5px; line-height: 1.5; }
+    .bot-val { font-size: 26px; font-weight: 700; letter-spacing: -0.7px; color: #e8e8e8; }
+    .bot-sub { font-size: 11px; color: #4a4a55; margin-top: 4px; }
 
-    /* 로딩/에러 */
-    .loading { text-align: center; padding: 60px; color: #6b6b6b; font-size: 14px; }
-    .err-box {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      border-radius: 8px;
-      padding: 13px 15px;
-      color: #dc2626;
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
+    .loading { text-align: center; padding: 60px; color: #4a4a55; font-size: 14px; }
+    .err-box { background: #1e1010; border: 1px solid #5a2020; border-radius: 8px; padding: 13px 15px; color: #f87171; font-size: 13px; margin-bottom: 14px; line-height: 1.7; }
 
-    /* 데이터 입력 탭 */
-    .info-card {
-      background: #fff;
-      border: 1px solid #e8e8e4;
-      border-radius: 12px;
-      padding: 24px;
-      font-size: 14px;
-      color: #555;
-      line-height: 1.85;
-    }
-    .info-card h3 { font-size: 15px; color: #1a1a1a; margin-bottom: 12px; }
-    .info-card code { background: #f0f0ec; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 12px; }
-    .btn-sheet {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 10px 22px;
-      background: #1a1a1a;
-      color: #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-    }
+    .info-card { background: #18181d; border: 1px solid #26262e; border-radius: 12px; padding: 24px; font-size: 14px; color: #777; line-height: 1.85; }
+    .info-card h3 { font-size: 15px; color: #e0e0e0; margin-bottom: 12px; }
+    .info-card strong { color: #bbb; }
+    .info-card code { background: #22222a; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 12px; color: #7eb8f7; }
+    .btn-sheet { display: inline-block; margin-top: 18px; padding: 10px 22px; background: #e8e8e8; color: #0f0f11; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 700; transition: background 0.15s; }
+    .btn-sheet:hover { background: #fff; }
   </style>
 </head>
 <body>
@@ -212,43 +110,44 @@
 
   <div id="p-input" class="panel">
     <div class="info-card">
-      <h3>📋 Google Sheets에서 데이터를 입력하세요</h3>
-      <p>아래 버튼을 클릭하면 연결된 스프레드시트가 열립니다. 저장하면 대시보드에 <strong>즉시 반영</strong>됩니다.</p>
+      <h3>📋 Google Sheets 설정 시트 항목</h3>
+      <p>설정 시트 <strong>A열에 키 이름</strong>, <strong>B열에 숫자값(만원)</strong>을 입력하세요.</p>
       <br>
-      <p><strong>시트 구성</strong></p>
-      <p>• <code>설정</code> 시트 — 목표월매출, 발주예산, 경과일, 총일수</p>
-      <p>• <code>제품</code> 시트 — 제품명, 일평균판매, 발주수량</p>
-      <p>• <code>매출</code> 시트 — 날짜, 누적매출 (매일 행 추가)</p>
+      <p>• <code>자사몰목표</code> — 자사몰 목표 일매출</p>
+      <p>• <code>네이버목표</code> — 네이버 목표 일매출</p>
+      <p>• <code>현재일매출_자사몰</code> — 자사몰 현재 평균일매출</p>
+      <p>• <code>현재일매출_네이버</code> — 네이버 현재 평균일매출</p>
+      <p>• <code>발주예산</code> — 기준 발주예산</p>
+      <p>• <code>경과일</code> / <code>총일수</code></p>
+      <br>
+      <p>총 플랫폼 일평균은 <strong>매출 시트의 전체 누적 ÷ 경과일</strong>로 자동 계산됩니다.</p>
       <a class="btn-sheet" id="sheet-link" href="#" target="_blank">📊 Google Sheets 열기</a>
     </div>
   </div>
 
   <div id="p-trend" class="panel">
-    <div class="info-card" style="text-align:center; color:#9b9b9b; padding: 48px;">
-      📈 매출 시트에 날짜별 데이터를 누적 입력하면 추이가 표시됩니다.<br><br>준비 중입니다.
+    <div class="info-card" style="text-align:center; padding: 48px;">
+      📈 추이 기능은 준비 중입니다.
     </div>
   </div>
 
 </div>
 <script>
 /* ===================================================
-   ⚙️ 설정 — 본인 Google Sheets ID로 교체하세요
+   ⚙️ 설정
    =================================================== */
 const SHEET_ID   = "1p-ko7c4--yUwYOYE2fL8X6Z1U3O1lWoJ36AZuBanGmQ";
-const GID_CONFIG = "0";   // 설정 시트 gid
-const GID_PROD   = "408610443";   // 제품 시트 gid
-const GID_SALES  = "202369795";   // 매출 시트 gid
+const GID_CONFIG = "0";          // 설정 시트 gid
+const GID_PROD   = "408610443";  // 제품 시트 gid
+const GID_SALES  = "202369795";  // 매출 시트 gid
 /* =================================================== */
 
-// 오늘 날짜
 const _d = new Date();
 document.getElementById("date-lbl").textContent =
   `${_d.getFullYear()}년 ${_d.getMonth()+1}월 ${_d.getDate()}일 기준`;
 document.getElementById("sheet-link").href =
   `https://docs.google.com/spreadsheets/d/${SHEET_ID}`;
 
-/* 숫자 포맷 (단위: 만원)
-   18000 → 1.8억  |  3500 → 3,500만  |  479 → 479만  */
 function f(v) {
   const n = Math.round(v);
   if (n >= 10000) return `${+(n/10000).toFixed(1)}억`;
@@ -278,64 +177,89 @@ async function load() {
   document.getElementById("content").innerHTML = `<div class="loading">데이터를 불러오는 중...</div>`;
   document.getElementById("err").innerHTML = "";
 
-  // 데모 데이터
-  const DEMO = {
-    targetSales: 18000, budget: 3500, elapsedDays: 24, totalDays: 30, currentSales: 11500,
-    products: [
-      { name:"맥세이프 킥프레임", actual:19, target:40 },
-      { name:"맥세이프 프레임",   actual:20, target:20 },
-      { name:"DW 프로",          actual:7,  target:9  },
-      { name:"DW 플러스",        actual:5,  target:7  },
-      { name:"PH",               actual:23, target:40 },
-    ]
-  };
-
-
   try {
     const [cfgR, prodR, salesR] = await Promise.all([
       fetchCSV(GID_CONFIG), fetchCSV(GID_PROD), fetchCSV(GID_SALES)
     ]);
+
+    /* 설정 시트: A열=키, B열=값 */
     const cfg = {};
     csv(cfgR).slice(1).forEach(r => { if(r[0]) cfg[r[0]] = r[1]; });
-    const products = csv(prodR).slice(1).filter(r=>r[0]).map(r=>({name:r[0],actual:n(r[1]),target:n(r[2])}));
-    const salesRows = csv(salesR).slice(1).filter(r=>r[0]);
-    const currentSales = n(salesRows.at(-1)?.[1] ?? 0);
+
+    /* 제품 시트 */
+    const products = csv(prodR).slice(1).filter(r=>r[0])
+      .map(r => ({ name:r[0], actual:n(r[1]), target:n(r[2]) }));
+
+    /* 매출 시트: 마지막 행 B열 = 전체 누적매출 */
+    const salesRows  = csv(salesR).slice(1).filter(r=>r[0]);
+    const totalSales = n(salesRows.at(-1)?.[1] ?? 0);
+    const elapsedDays = n(cfg["경과일"] ?? 24);
+    const totalDays   = n(cfg["총일수"] ?? 30);
+
+    /* ── 핵심 계산 ──
+       자사몰+네이버 목표 = 자사몰목표 + 네이버목표 (각각 따로 입력)
+       자사몰+네이버 현재 = 현재일매출_자사몰 + 현재일매출_네이버
+       총 플랫폼 일평균   = 전체 누적매출 ÷ 경과일
+    */
+    const targetMain  = n(cfg["자사몰목표"] ?? 0) + n(cfg["네이버목표"] ?? 0);
+    const currentMain = n(cfg["현재일매출_자사몰"] ?? 0) + n(cfg["현재일매출_네이버"] ?? 0);
+    const allDailyAvg = elapsedDays > 0 ? Math.round(totalSales / elapsedDays) : 0;
+
     render({
-      targetSales: n(cfg["목표월매출"]??18000),
-      budget:      n(cfg["발주예산"]  ??3500),
-      elapsedDays: n(cfg["경과일"]    ??24),
-      totalDays:   n(cfg["총일수"]    ??30),
-      currentSales, products
+      targetMain,
+      currentMain,
+      allDailyAvg,
+      budget:     n(cfg["발주예산"] ?? 3500),
+      elapsedDays,
+      totalDays,
+      totalSales,
+      products,
     });
+
   } catch(e) {
     document.getElementById("err").innerHTML =
-      `<div class="err-box">⚠️ 데이터 로드 실패: ${e.message} — Sheets 공개 설정과 SHEET_ID를 확인하세요.</div>`;
-    render(DEMO);
+      `<div class="err-box">
+        ⚠️ 데이터 로드 실패: <strong>${e.message}</strong><br><br>
+        확인 사항:<br>
+        1. Sheets 공유 → <strong>"링크가 있는 모든 사용자" 뷰어</strong> 설정<br>
+        2. 설정 시트 A열 키 이름이 정확한지 확인<br>
+        3. gid 번호 확인 (시트 탭 클릭 → URL 끝 #gid= 숫자)
+      </div>`;
+    document.getElementById("content").innerHTML = "";
   }
 }
 
-function render({ targetSales, budget, elapsedDays, totalDays, currentSales, products }) {
-  const pct        = currentSales / targetSales * 100;
-  const dailyAvg   = Math.round(currentSales / elapsedDays);
-  const targetDay  = Math.round(targetSales / totalDays);
-  const remain     = totalDays - elapsedDays;
-  const projected  = currentSales + dailyAvg * remain;
-  const needDaily  = remain > 0 ? Math.round((targetSales - currentSales) / remain) : 0;
-  const budgetAdj  = Math.round(projected * budget / targetSales);
-  const onTrack    = pct >= 75;
+function render({ targetMain, currentMain, allDailyAvg, budget, elapsedDays, totalDays, totalSales, products }) {
 
-  const txtRed  = (!onTrack && dailyAvg > 0)
-    ? `목표 달성을 위한 잔여 일 매출이 평소 대비 ${Math.round(needDaily/dailyAvg*100)}% 이상 필요합니다. 발주 조정 협의가 필요합니다.`
+  /* 달성률: 현재 자사몰+네이버 일매출 ÷ 목표 */
+  const pct     = targetMain > 0 ? (currentMain / targetMain * 100) : 0;
+  const onTrack = pct >= 75;
+  const remain  = totalDays - elapsedDays;
+
+  /* 월말 예상 (전체 누적 기준) */
+  const targetMonthly = targetMain * totalDays;
+  const projected     = totalSales + allDailyAvg * remain;
+  const budgetAdj     = targetMonthly > 0 ? Math.round(projected * budget / targetMonthly) : 0;
+
+  /* 잔여 일매출 목표 (자사몰+네이버 기준) */
+  const needDaily = remain > 0 && currentMain < targetMain
+    ? Math.round((targetMain * totalDays - currentMain * elapsedDays) / remain)
+    : targetMain;
+
+  /* 알림 */
+  const txtRed = (!onTrack && currentMain > 0)
+    ? `목표 달성을 위한 잔여 일 매출이 평소 대비 ${Math.round(needDaily / currentMain * 100)}% 이상 필요합니다. 발주 조정 협의가 필요합니다.`
     : null;
   const urgents = products.filter(p => p.actual/p.target < 0.55);
   const txtBlue = urgents.length > 0
     ? `급감 제품: ${urgents.map(p=>p.name).join(", ")} — 발주량 축소 또는 품절 시기 재검토`
     : null;
 
+  /* 제품 바 */
   const prodHTML = products.map(p => {
     const r   = p.actual / p.target;
     const w   = Math.min(Math.round(r*100), 100);
-    const col = r >= 1 ? '#2563eb' : '#f59e0b';
+    const col = r >= 1 ? '#3b82f6' : '#f59e0b';
     const badge = r < 0.55
       ? `<span class="badge r">급감</span>`
       : r >= 1
@@ -356,35 +280,42 @@ function render({ targetSales, budget, elapsedDays, totalDays, currentSales, pro
 
   document.getElementById("content").innerHTML = `
 
+    <!-- 일매출 달성 현황 -->
     <div class="sec">
-      <div class="sec-lbl">월 매출 달성 현황</div>
+      <div class="sec-lbl">일매출 달성 현황</div>
       <div class="kpi4">
+
         <div class="card">
-          <div class="c-lbl">목표 월 매출</div>
-          <div class="c-val">${f(targetSales)}</div>
-          <div class="c-sub">기준 발주예산 ${f(budget)}원</div>
+          <div class="c-lbl">자사몰+네이버<br>목표 평균일매출</div>
+          <div class="c-val">${f(targetMain)}</div>
+          <div class="c-sub">자사몰+네이버 합산</div>
         </div>
+
         <div class="card">
-          <div class="c-lbl">현재 누적 매출</div>
-          <div class="c-val">${f(currentSales)}</div>
+          <div class="c-lbl">현재 자사몰+네이버<br>평균일매출</div>
+          <div class="c-val">${f(currentMain)}</div>
           <div class="c-sub">${elapsedDays}일 경과 / ${totalDays}일</div>
         </div>
+
         <div class="card">
           <div class="c-lbl">목표 달성률</div>
           <div class="c-val ${onTrack?'':'r'}">${pct.toFixed(1)}%</div>
           <div class="c-tag ${onTrack?'g':'r'}">${onTrack?'정상':'부진'}</div>
           <div class="prog">
-            <div class="prog-bar" style="width:${Math.min(pct,100)}%;background:${onTrack?'#2563eb':'#ef4444'};"></div>
+            <div class="prog-bar" style="width:${Math.min(pct,100)}%;background:${onTrack?'#3b82f6':'#f87171'};"></div>
           </div>
         </div>
+
         <div class="card">
-          <div class="c-lbl">일평균 매출 (실적)</div>
-          <div class="c-val">${f(dailyAvg)}</div>
-          <div class="c-sub">목표 ${f(targetDay)}/일</div>
+          <div class="c-lbl">총 플랫폼<br>일평균 매출 (실적)</div>
+          <div class="c-val">${f(allDailyAvg)}</div>
+          <div class="c-sub">전체 누적 ÷ ${elapsedDays}일</div>
         </div>
+
       </div>
     </div>
 
+    <!-- 발주 예산 여유 -->
     <div class="sec">
       <div class="sec-lbl">발주 예산 여유</div>
       <div class="kpi4">
@@ -401,7 +332,7 @@ function render({ targetSales, budget, elapsedDays, totalDays, currentSales, pro
         <div class="card">
           <div class="c-lbl">월말 예상 매출</div>
           <div class="c-val r">${f(projected)}</div>
-          <div class="c-sub">목표 대비 ${projected>=targetSales?'+':'-'}${f(Math.abs(projected-targetSales))}</div>
+          <div class="c-sub">목표 대비 ${projected >= targetMonthly ? '+' : '-'}${f(Math.abs(projected - targetMonthly))}</div>
         </div>
         <div class="card">
           <div class="c-lbl">예산 달성률 기반 조정</div>
@@ -414,16 +345,18 @@ function render({ targetSales, budget, elapsedDays, totalDays, currentSales, pro
     ${txtRed  ? `<div class="alert r">${txtRed}</div>`  : ''}
     ${txtBlue ? `<div class="alert b">${txtBlue}</div>` : ''}
 
+    <!-- 제품 리스트 -->
     <div class="sec">
       <div class="sec-lbl">주력 제품 일평균 판매수량</div>
       <div class="prod-card">${prodHTML}</div>
     </div>
 
+    <!-- 추가 지표 -->
     <div class="sec">
       <div class="sec-lbl">추가 지표</div>
       <div class="bot2">
         <div class="bot-card">
-          <div class="bot-lbl">목표 달성에 필요한 잔여 일매출</div>
+          <div class="bot-lbl">목표 달성에 필요한<br>잔여 일매출 (자사몰+네이버)</div>
           <div class="bot-val">${f(needDaily)}</div>
           <div class="bot-sub">잔여 ${remain}일</div>
         </div>
