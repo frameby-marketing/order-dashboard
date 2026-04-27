@@ -283,7 +283,7 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
 
   /* 알림 */
   const txtRed = (pct < 80 && currentMain > 0)
-    ? `[실패] 자사몰+네이버 달성률 ${pct.toFixed(1)}% — 목표 달성을 위한 잔여 일 매출이 평소 대비 ${Math.round(needDaily / currentMain * 100)}% 이상 필요합니다. 발주 조정 협의가 필요합니다.`
+    ? `[위험] 자사몰+네이버 달성률 ${pct.toFixed(1)}% — 목표 달성을 위한 잔여 일 매출이 평소 대비 ${Math.round(needDaily / currentMain * 100)}% 이상 필요합니다. 발주 조정 협의가 필요합니다.`
     : (pct < 90 && currentMain > 0)
     ? `[경고] 자사몰+네이버 달성률 ${pct.toFixed(1)}% — 목표 대비 부족합니다. 추이를 주시하세요.`
     : null;
