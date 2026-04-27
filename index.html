@@ -8,41 +8,17 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #f4f4f0;
-      --surface: #ffffff;
-      --surface2: #f9f9f7;
-      --border: #e8e8e4;
-      --text-primary: #1a1a1a;
-      --text-secondary: #6b6b6b;
-      --text-muted: #9b9b9b;
-      --accent-blue: #2563eb;
-      --accent-orange: #f59e0b;
-      --accent-red: #ef4444;
-      --accent-green: #22c55e;
-      --tab-active-bg: #1a1a1a;
-      --tab-active-text: #ffffff;
-      --status-danger-bg: #fef2f2;
-      --status-danger-border: #fecaca;
-      --status-danger-text: #dc2626;
-      --status-info-bg: #eff6ff;
-      --status-info-border: #bfdbfe;
-      --status-info-text: #2563eb;
-      --radius: 12px;
-      --radius-sm: 8px;
-    }
-
     body {
       font-family: 'Noto Sans KR', sans-serif;
-      background: var(--bg);
-      color: var(--text-primary);
+      background: #f4f4f0;
+      color: #1a1a1a;
       min-height: 100vh;
       padding: 32px 24px;
     }
 
-    .container { max-width: 960px; margin: 0 auto; }
+    .wrap { max-width: 960px; margin: 0 auto; }
 
-    /* Header */
+    /* 헤더 */
     .header {
       display: flex;
       justify-content: space-between;
@@ -50,553 +26,419 @@
       margin-bottom: 24px;
     }
     .header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
-    .header .date { font-size: 13px; color: var(--text-secondary); }
+    .header-r { display: flex; align-items: center; gap: 10px; }
+    .date-txt { font-size: 13px; color: #6b6b6b; }
+    .btn-refresh {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 50px;
+      padding: 5px 13px;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      color: #555;
+    }
+    .btn-refresh:hover { border-color: #999; color: #111; }
 
-    /* Tabs */
-    .tabs { display: flex; gap: 8px; margin-bottom: 28px; }
+    /* 탭 */
+    .tabs { display: flex; gap: 8px; margin-bottom: 26px; }
     .tab {
-      padding: 8px 20px;
-      border: 1.5px solid var(--border);
+      padding: 7px 18px;
+      border: 1.5px solid #e0e0da;
       border-radius: 50px;
       font-size: 13px;
       font-weight: 500;
       cursor: pointer;
-      background: var(--surface);
-      color: var(--text-secondary);
-      transition: all 0.18s ease;
+      background: #fff;
+      color: #6b6b6b;
+      font-family: inherit;
+      transition: all 0.15s;
     }
-    .tab:hover { border-color: #aaa; color: var(--text-primary); }
-    .tab.active {
-      background: var(--tab-active-bg);
-      color: var(--tab-active-text);
-      border-color: var(--tab-active-bg);
-    }
+    .tab:hover { border-color: #aaa; color: #1a1a1a; }
+    .tab.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+    .panel { display: none; }
+    .panel.on { display: block; }
 
-    /* Section */
-    .section { margin-bottom: 28px; }
-    .section-title {
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-weight: 500;
-      margin-bottom: 12px;
-      letter-spacing: 0.2px;
-    }
+    /* 섹션 */
+    .sec { margin-bottom: 22px; }
+    .sec-lbl { font-size: 13px; color: #6b6b6b; font-weight: 500; margin-bottom: 10px; }
 
-    /* KPI Grid */
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    @media (max-width: 680px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    /* KPI 4열 */
+    .kpi4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+    @media (max-width:680px) { .kpi4 { grid-template-columns: repeat(2,1fr); } }
 
-    .kpi-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 18px 16px;
+    .card {
+      background: #fff;
+      border: 1px solid #e8e8e4;
+      border-radius: 12px;
+      padding: 18px 16px 14px;
     }
-    .kpi-label {
-      font-size: 12px;
-      color: var(--text-secondary);
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-    .kpi-value {
+    .c-lbl { font-size: 12px; color: #6b6b6b; font-weight: 500; margin-bottom: 5px; }
+    .c-val {
       font-size: 26px;
       font-weight: 700;
-      letter-spacing: -0.8px;
-      color: var(--text-primary);
-      line-height: 1;
-      margin-bottom: 4px;
+      letter-spacing: -0.7px;
+      line-height: 1.1;
+      color: #1a1a1a;
     }
-    .kpi-value.danger { color: var(--accent-red); }
-    .kpi-sub {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin-top: 2px;
-    }
-    .kpi-status {
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 4px;
-    }
-    .kpi-status.danger { color: var(--accent-red); }
-    .kpi-status.ok { color: var(--accent-green); }
+    .c-val.r { color: #ef4444; }
+    .c-sub { font-size: 11px; color: #9b9b9b; margin-top: 4px; }
+    .c-tag { font-size: 12px; font-weight: 600; margin-top: 3px; }
+    .c-tag.r { color: #ef4444; }
+    .c-tag.g { color: #16a34a; }
 
-    /* Progress bar */
-    .progress-wrap { margin-top: 10px; }
-    .progress-bar-bg {
-      height: 7px;
-      background: #e8e8e4;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 4px;
-      background: var(--accent-red);
-      transition: width 0.7s cubic-bezier(.4,0,.2,1);
-    }
-    .progress-bar-fill.ok { background: var(--accent-blue); }
+    /* 프로그레스 */
+    .prog { margin-top: 9px; height: 7px; background: #e8e8e4; border-radius: 4px; overflow: hidden; }
+    .prog-bar { height: 100%; border-radius: 4px; transition: width .7s cubic-bezier(.4,0,.2,1); }
 
-    /* Alert Boxes */
+    /* 알림 */
     .alert {
-      border-radius: var(--radius-sm);
-      padding: 14px 16px;
+      border-radius: 8px;
+      padding: 12px 15px;
       font-size: 13px;
       font-weight: 500;
       margin-bottom: 10px;
-      line-height: 1.5;
+      line-height: 1.55;
       border-left: 3px solid;
     }
-    .alert.danger {
-      background: var(--status-danger-bg);
-      border-color: var(--status-danger-text);
-      color: var(--status-danger-text);
-    }
-    .alert.info {
-      background: var(--status-info-bg);
-      border-color: var(--status-info-text);
-      color: var(--status-info-text);
-    }
-    .alert.hidden { display: none; }
+    .alert.r { background: #fef2f2; border-color: #ef4444; color: #dc2626; }
+    .alert.b { background: #eff6ff; border-color: #2563eb; color: #2563eb; }
 
-    /* Product Table */
-    .product-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    /* 제품 리스트 */
+    .prod-card {
+      background: #fff;
+      border: 1px solid #e8e8e4;
+      border-radius: 12px;
       overflow: hidden;
     }
-    .product-row {
+    .prod-row {
       display: flex;
       align-items: center;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
-      gap: 16px;
+      padding: 13px 20px;
+      border-bottom: 1px solid #f0f0ec;
+      gap: 14px;
     }
-    .product-row:last-child { border-bottom: none; }
-    .product-name { font-size: 14px; font-weight: 500; width: 160px; flex-shrink: 0; }
-    .product-bar-col { flex: 1; min-width: 0; }
-    .product-qty { font-size: 13px; font-weight: 600; text-align: right; }
-    .product-qty span { font-weight: 400; color: var(--text-muted); }
+    .prod-row:last-child { border-bottom: none; }
+    .prod-name { width: 148px; flex-shrink: 0; font-size: 14px; font-weight: 500; }
+    .prod-bar-wrap { flex: 1; min-width: 0; }
+    .prod-bar-bg { height: 8px; background: #eeeeee; border-radius: 4px; overflow: hidden; }
+    .prod-bar-fill { height: 100%; border-radius: 4px; transition: width .7s cubic-bezier(.4,0,.2,1); }
+    .prod-qty { width: 66px; flex-shrink: 0; font-size: 13px; font-weight: 600; text-align: right; }
+    .prod-qty em { font-style: normal; font-weight: 400; color: #9b9b9b; }
     .badge {
+      flex-shrink: 0;
+      width: 40px;
+      text-align: center;
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 9px;
+      padding: 3px 0;
       border-radius: 50px;
-      text-align: center;
     }
-    .badge.danger { background: #fef2f2; color: var(--accent-red); }
-    .badge.ok { background: #f0fdf4; color: #16a34a; }
-    .badge.warn { background: #fffbeb; color: #d97706; }
+    .badge.r  { background: #fef2f2; color: #ef4444; }
+    .badge.g  { background: #f0fdf4; color: #16a34a; }
+    .badge.am { background: #fffbeb; color: #d97706; }
 
-    /* Bottom KPIs */
-    .bottom-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 28px;
+    /* 추가 지표 */
+    .bot2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .bot-card {
+      background: #fff;
+      border: 1px solid #e8e8e4;
+      border-radius: 12px;
+      padding: 18px 16px;
     }
-    .bottom-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 18px;
-    }
-    .bottom-label { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
-    .bottom-value { font-size: 28px; font-weight: 700; letter-spacing: -0.8px; }
-    .bottom-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+    .bot-lbl { font-size: 12px; color: #6b6b6b; margin-bottom: 5px; }
+    .bot-val { font-size: 26px; font-weight: 700; letter-spacing: -0.7px; }
+    .bot-sub { font-size: 11px; color: #9b9b9b; margin-top: 4px; }
 
-    /* Loading / Error */
-    .loading {
-      text-align: center;
-      padding: 60px;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-    .error-msg {
+    /* 로딩/에러 */
+    .loading { text-align: center; padding: 60px; color: #6b6b6b; font-size: 14px; }
+    .err-box {
       background: #fef2f2;
       border: 1px solid #fecaca;
       border-radius: 8px;
-      padding: 16px;
+      padding: 13px 15px;
       color: #dc2626;
       font-size: 13px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    /* Tab panels */
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
-
-    /* Data Input Tab */
-    .input-note {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    /* 데이터 입력 탭 */
+    .info-card {
+      background: #fff;
+      border: 1px solid #e8e8e4;
+      border-radius: 12px;
       padding: 24px;
       font-size: 14px;
-      line-height: 1.8;
-      color: var(--text-secondary);
+      color: #555;
+      line-height: 1.85;
     }
-    .input-note h3 { font-size: 15px; color: var(--text-primary); margin-bottom: 12px; }
-    .input-note code {
-      background: #f0f0ec;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-family: monospace;
-      font-size: 12px;
-      color: #333;
-    }
-    .input-note .sheet-link {
+    .info-card h3 { font-size: 15px; color: #1a1a1a; margin-bottom: 12px; }
+    .info-card code { background: #f0f0ec; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 12px; }
+    .btn-sheet {
       display: inline-block;
-      margin-top: 16px;
-      padding: 10px 20px;
+      margin-top: 18px;
+      padding: 10px 22px;
       background: #1a1a1a;
-      color: white;
+      color: #fff;
       border-radius: 8px;
       text-decoration: none;
       font-size: 13px;
       font-weight: 600;
     }
-
-    /* Trend Tab */
-    .trend-note {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-
-    .refresh-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      padding: 6px 14px;
-      font-size: 12px;
-      cursor: pointer;
-      color: var(--text-secondary);
-      font-family: 'Noto Sans KR', sans-serif;
-      transition: all 0.15s;
-    }
-    .refresh-btn:hover { border-color: #aaa; color: var(--text-primary); }
   </style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
 
-  <!-- ======== HEADER ======== -->
   <div class="header">
     <h1>발주 관리 대시보드</h1>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <span class="date" id="today-date"></span>
-      <button class="refresh-btn" onclick="loadData()">↻ 새로고침</button>
+    <div class="header-r">
+      <span class="date-txt" id="date-lbl"></span>
+      <button class="btn-refresh" onclick="load()">↻ 새로고침</button>
     </div>
   </div>
 
-  <!-- ======== TABS ======== -->
   <div class="tabs">
-    <div class="tab active" onclick="switchTab('current', this)">현황</div>
-    <div class="tab" onclick="switchTab('input', this)">데이터 입력</div>
-    <div class="tab" onclick="switchTab('trend', this)">추이</div>
+    <div class="tab active" onclick="tab('current',this)">현황</div>
+    <div class="tab" onclick="tab('input',this)">데이터 입력</div>
+    <div class="tab" onclick="tab('trend',this)">추이</div>
   </div>
 
-  <div id="error-area"></div>
+  <div id="err"></div>
 
-  <!-- ======== 현황 탭 ======== -->
-  <div id="tab-current" class="tab-panel active">
-    <div id="main-content" class="loading">데이터를 불러오는 중...</div>
+  <div id="p-current" class="panel on">
+    <div id="content"><div class="loading">불러오는 중...</div></div>
   </div>
 
-  <!-- ======== 데이터 입력 탭 ======== -->
-  <div id="tab-input" class="tab-panel">
-    <div class="input-note">
-      <h3>📋 Google Sheets에서 직접 입력하세요</h3>
-      <p>아래 링크를 클릭하면 연결된 구글 스프레드시트가 열립니다.<br>
-      데이터를 수정하고 저장하면 대시보드에 <strong>즉시 반영</strong>됩니다.</p>
+  <div id="p-input" class="panel">
+    <div class="info-card">
+      <h3>📋 Google Sheets에서 데이터를 입력하세요</h3>
+      <p>아래 버튼을 클릭하면 연결된 스프레드시트가 열립니다. 저장하면 대시보드에 <strong>즉시 반영</strong>됩니다.</p>
       <br>
-      <p><strong>입력 시트 구성:</strong></p>
-      <p>• <code>설정</code> 시트 — 목표 매출, 발주예산, 현재 날짜(경과일) 입력</p>
-      <p>• <code>제품</code> 시트 — 제품명, 일평균 판매수량, 발주수량 입력</p>
-      <p>• <code>매출</code> 시트 — 현재 누적 매출 입력</p>
-      <a class="sheet-link" id="sheet-link" href="#" target="_blank">📊 Google Sheets 열기</a>
+      <p><strong>시트 구성</strong></p>
+      <p>• <code>설정</code> 시트 — 목표월매출, 발주예산, 경과일, 총일수</p>
+      <p>• <code>제품</code> 시트 — 제품명, 일평균판매, 발주수량</p>
+      <p>• <code>매출</code> 시트 — 날짜, 누적매출 (매일 행 추가)</p>
+      <a class="btn-sheet" id="sheet-link" href="#" target="_blank">📊 Google Sheets 열기</a>
     </div>
   </div>
 
-  <!-- ======== 추이 탭 ======== -->
-  <div id="tab-trend" class="tab-panel">
-    <div class="trend-note">
-      📈 추이 데이터를 보려면 <strong>매출</strong> 시트에 날짜별 데이터를 누적 입력하세요.<br><br>
-      현재는 준비 중입니다.
+  <div id="p-trend" class="panel">
+    <div class="info-card" style="text-align:center; color:#9b9b9b; padding: 48px;">
+      📈 매출 시트에 날짜별 데이터를 누적 입력하면 추이가 표시됩니다.<br><br>준비 중입니다.
     </div>
   </div>
 
 </div>
-
 <script>
-// ============================================================
-// ⚙️ 설정: 본인 Google Sheets ID로 교체하세요
-// ============================================================
-const SHEET_ID = "d/1p-ko7c4--yUwYOYE2fL8X6Z1U3O1lWoJ36AZuBanGmQ";
-const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}`;
+/* ===================================================
+   ⚙️ 설정 — 본인 Google Sheets ID로 교체하세요
+   =================================================== */
+const SHEET_ID   = "d/1p-ko7c4--yUwYOYE2fL8X6Z1U3O1lWoJ36AZuBanGmQ";
+const GID_CONFIG = "0";   // 설정 시트 gid
+const GID_PROD   = "1";   // 제품 시트 gid
+const GID_SALES  = "2";   // 매출 시트 gid
+/* =================================================== */
 
-// 각 시트의 gid (시트 하단에서 확인 가능)
-const GID_SETTINGS = "0";       // 설정 시트
-const GID_PRODUCTS = "1";       // 제품 시트
-const GID_SALES    = "2";       // 매출 시트
-// ============================================================
+// 오늘 날짜
+const _d = new Date();
+document.getElementById("date-lbl").textContent =
+  `${_d.getFullYear()}년 ${_d.getMonth()+1}월 ${_d.getDate()}일 기준`;
+document.getElementById("sheet-link").href =
+  `https://docs.google.com/spreadsheets/d/${SHEET_ID}`;
 
-document.getElementById("sheet-link").href = SHEET_URL;
+/* 숫자 포맷 (단위: 만원)
+   18000 → 1.8억  |  3500 → 3,500만  |  479 → 479만  */
+function f(v) {
+  const n = Math.round(v);
+  if (n >= 10000) return `${+(n/10000).toFixed(1)}억`;
+  if (n >= 1000)  return `${Math.round(n/1000)}천만`;
+  return `${n.toLocaleString()}만`;
+}
 
-// 오늘 날짜 표시
-const now = new Date();
-document.getElementById("today-date").textContent =
-  `${now.getFullYear()}년 ${now.getMonth()+1}월 ${now.getDate()}일 기준`;
+function tab(name, el) {
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("on"));
+  el.classList.add("active");
+  document.getElementById(`p-${name}`).classList.add("on");
+}
 
 function fetchCSV(gid) {
   const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`;
-  return fetch(url).then(r => {
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    return r.text();
-  });
+  return fetch(url).then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.text(); });
 }
 
-function parseCSV(text) {
-  return text.trim().split("\n").map(row =>
-    row.split(",").map(c => c.trim().replace(/^"|"$/g, ""))
-  );
+function csv(raw) {
+  return raw.trim().split("\n").map(r => r.split(",").map(c => c.trim().replace(/^"|"$/g,"")));
 }
 
-function num(str) {
-  return parseFloat(String(str).replace(/[^0-9.-]/g, "")) || 0;
-}
+function n(s) { return parseFloat(String(s).replace(/[^0-9.-]/g,""))||0; }
 
-// v는 항상 "만원" 단위 숫자 (예: 18000 = 18,000만원)
-function fmt만(v) {
-  if (v >= 10000) return `${(v/10000).toFixed(1).replace(/\.0$/, '')}억`;
-  if (v >= 1000)  return `${Math.round(v/1000)}천만`;
-  return `${Math.round(v).toLocaleString()}만`;
-}
-// 단위 포함 표시: "18,000만원" → "18,000만"
-function fmt(v) { return fmt만(v) + '만'; }
-// 억 단위면 "억", 천만 단위면 "천만만" 방지
-function fmtLabel(v) {
-  if (v >= 10000) return `${(v/10000).toFixed(1).replace(/\.0$/, '')}억`;
-  if (v >= 1000)  return `${Math.round(v/1000)}천만`;
-  return `${Math.round(v).toLocaleString()}만`;
-}
+async function load() {
+  document.getElementById("content").innerHTML = `<div class="loading">데이터를 불러오는 중...</div>`;
+  document.getElementById("err").innerHTML = "";
 
-async function loadData() {
-  document.getElementById("main-content").innerHTML = `<div class="loading">데이터를 불러오는 중...</div>`;
-  document.getElementById("error-area").innerHTML = "";
+  // 데모 데이터
+  const DEMO = {
+    targetSales: 18000, budget: 3500, elapsedDays: 24, totalDays: 30, currentSales: 11500,
+    products: [
+      { name:"맥세이프 킥프레임", actual:19, target:40 },
+      { name:"맥세이프 프레임",   actual:20, target:20 },
+      { name:"DW 프로",          actual:7,  target:9  },
+      { name:"DW 플러스",        actual:5,  target:7  },
+      { name:"PH",               actual:23, target:40 },
+    ]
+  };
 
-  if (SHEET_ID === "YOUR_GOOGLE_SHEET_ID_HERE") {
-    renderDemo();
-    return;
-  }
+  if (SHEET_ID === "YOUR_GOOGLE_SHEET_ID_HERE") { render(DEMO); return; }
 
   try {
-    const [settingsRaw, productsRaw, salesRaw] = await Promise.all([
-      fetchCSV(GID_SETTINGS),
-      fetchCSV(GID_PRODUCTS),
-      fetchCSV(GID_SALES),
+    const [cfgR, prodR, salesR] = await Promise.all([
+      fetchCSV(GID_CONFIG), fetchCSV(GID_PROD), fetchCSV(GID_SALES)
     ]);
-
-    const settings = {};
-    parseCSV(settingsRaw).slice(1).forEach(r => {
-      if (r[0]) settings[r[0]] = r[1];
-    });
-
-    const products = parseCSV(productsRaw).slice(1).filter(r => r[0]);
-    const salesRows = parseCSV(salesRaw).slice(1);
-    const currentSales = num(salesRows[salesRows.length - 1]?.[1] || 0);
-
+    const cfg = {};
+    csv(cfgR).slice(1).forEach(r => { if(r[0]) cfg[r[0]] = r[1]; });
+    const products = csv(prodR).slice(1).filter(r=>r[0]).map(r=>({name:r[0],actual:n(r[1]),target:n(r[2])}));
+    const salesRows = csv(salesR).slice(1).filter(r=>r[0]);
+    const currentSales = n(salesRows.at(-1)?.[1] ?? 0);
     render({
-      targetSales:   num(settings["목표월매출"] || 18000),
-      budget:        num(settings["발주예산"] || 3500),
-      elapsedDays:   num(settings["경과일"] || 24),
-      totalDays:     num(settings["총일수"] || 30),
-      currentSales,
-      products: products.map(r => ({
-        name:     r[0],
-        actual:   num(r[1]),
-        target:   num(r[2]),
-      })),
+      targetSales: n(cfg["목표월매출"]??18000),
+      budget:      n(cfg["발주예산"]  ??3500),
+      elapsedDays: n(cfg["경과일"]    ??24),
+      totalDays:   n(cfg["총일수"]    ??30),
+      currentSales, products
     });
-  } catch (e) {
-    document.getElementById("error-area").innerHTML =
-      `<div class="error-msg">⚠️ 데이터를 불러오지 못했습니다. Sheets 공개 설정 및 SHEET_ID를 확인하세요.<br><small>${e.message}</small></div>`;
-    renderDemo();
+  } catch(e) {
+    document.getElementById("err").innerHTML =
+      `<div class="err-box">⚠️ 데이터 로드 실패: ${e.message} — Sheets 공개 설정과 SHEET_ID를 확인하세요.</div>`;
+    render(DEMO);
   }
 }
 
-// 데모 데이터로 렌더링 (SHEET_ID 미설정 시)
-function renderDemo() {
-  render({
-    targetSales: 18000,
-    budget: 3500,
-    elapsedDays: 24,
-    totalDays: 30,
-    currentSales: 11500,
-    products: [
-      { name: "맥세이프 킥프레임", actual: 19, target: 40 },
-      { name: "맥세이프 프레임",   actual: 20, target: 20 },
-      { name: "DW 프로",          actual: 7,  target: 9  },
-      { name: "DW 플러스",        actual: 5,  target: 7  },
-      { name: "PH",               actual: 23, target: 40 },
-    ],
-  });
-}
+function render({ targetSales, budget, elapsedDays, totalDays, currentSales, products }) {
+  const pct        = currentSales / targetSales * 100;
+  const dailyAvg   = Math.round(currentSales / elapsedDays);
+  const targetDay  = Math.round(targetSales / totalDays);
+  const remain     = totalDays - elapsedDays;
+  const projected  = currentSales + dailyAvg * remain;
+  const needDaily  = remain > 0 ? Math.round((targetSales - currentSales) / remain) : 0;
+  const budgetAdj  = Math.round(projected * budget / targetSales);
+  const onTrack    = pct >= 75;
 
-function render(d) {
-  const { targetSales, budget, elapsedDays, totalDays, currentSales, products } = d;
-
-  // 계산
-  const achieveRate    = (currentSales / targetSales * 100).toFixed(1);
-  const dailyAvg       = Math.round(currentSales / elapsedDays);
-  const targetDaily    = Math.round(targetSales / totalDays);
-  const remainDays     = totalDays - elapsedDays;
-  const projectedSales = currentSales + dailyAvg * remainDays;
-  const usedBudget     = budget;
-  const remainBudget   = 0; // 예산 소진 시 0
-  const budgetRate     = (usedBudget / budget * 100).toFixed(1);
-  const neededDaily    = remainDays > 0 ? Math.round((targetSales - currentSales) / remainDays) : 0;
-  const adjustedBudget = Math.round(projectedSales * (budget / targetSales));
-  const isOnTrack      = parseFloat(achieveRate) >= 75;
-
-  const alertRed  = !isOnTrack
-    ? `목표 달성을 위한 잔여 일 매출이 평소 대비 ${Math.round(neededDaily/dailyAvg*100)}% 이상 필요합니다. 발주 조정 협의가 필요합니다.`
+  const txtRed  = (!onTrack && dailyAvg > 0)
+    ? `목표 달성을 위한 잔여 일 매출이 평소 대비 ${Math.round(needDaily/dailyAvg*100)}% 이상 필요합니다. 발주 조정 협의가 필요합니다.`
+    : null;
+  const urgents = products.filter(p => p.actual/p.target < 0.55);
+  const txtBlue = urgents.length > 0
+    ? `급감 제품: ${urgents.map(p=>p.name).join(", ")} — 발주량 축소 또는 품절 시기 재검토`
     : null;
 
-  const urgentProducts = products.filter(p => p.actual / p.target < 0.55);
-  const alertBlue = urgentProducts.length > 0
-    ? `급감 제품: ${urgentProducts.map(p => p.name).join(", ")} — 발주량 축소 또는 품절 시기 재검토`
-    : null;
-
-  document.getElementById("main-content").innerHTML = `
-
-    <!-- 월 매출 달성 현황 -->
-    <div class="section">
-      <div class="section-title">월 매출 달성 현황</div>
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">목표 월 매출</div>
-          <div class="kpi-value">${fmtLabel(targetSales)}만</div>
-          <div class="kpi-sub">기준 발주예산 ${fmtLabel(budget)}만원</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">현재 누적 매출</div>
-          <div class="kpi-value">${fmtLabel(currentSales)}만</div>
-          <div class="kpi-sub">${elapsedDays}일 경과 / ${totalDays}일</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">목표 달성률</div>
-          <div class="kpi-value ${isOnTrack ? '' : 'danger'}">${achieveRate}%</div>
-          <div class="kpi-status ${isOnTrack ? 'ok' : 'danger'}">${isOnTrack ? '정상' : '부진'}</div>
-          <div class="progress-wrap">
-            <div class="progress-bar-bg">
-              <div class="progress-bar-fill ${isOnTrack ? 'ok' : ''}" style="width:${Math.min(achieveRate, 100)}%"></div>
-            </div>
+  const prodHTML = products.map(p => {
+    const r   = p.actual / p.target;
+    const w   = Math.min(Math.round(r*100), 100);
+    const col = r >= 1 ? '#2563eb' : '#f59e0b';
+    const badge = r < 0.55
+      ? `<span class="badge r">급감</span>`
+      : r >= 1
+      ? `<span class="badge g">정상</span>`
+      : `<span class="badge am">부진</span>`;
+    return `
+      <div class="prod-row">
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-bar-wrap">
+          <div class="prod-bar-bg">
+            <div class="prod-bar-fill" style="width:${w}%;background:${col};"></div>
           </div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-label">일평균 매출 (실적)</div>
-          <div class="kpi-value">${fmtLabel(dailyAvg)}만</div>
-          <div class="kpi-sub">목표 ${fmtLabel(targetDaily)}만/일</div>
+        <div class="prod-qty">${p.actual}<em>/${p.target}</em></div>
+        ${badge}
+      </div>`;
+  }).join('');
+
+  document.getElementById("content").innerHTML = `
+
+    <div class="sec">
+      <div class="sec-lbl">월 매출 달성 현황</div>
+      <div class="kpi4">
+        <div class="card">
+          <div class="c-lbl">목표 월 매출</div>
+          <div class="c-val">${f(targetSales)}</div>
+          <div class="c-sub">기준 발주예산 ${f(budget)}원</div>
+        </div>
+        <div class="card">
+          <div class="c-lbl">현재 누적 매출</div>
+          <div class="c-val">${f(currentSales)}</div>
+          <div class="c-sub">${elapsedDays}일 경과 / ${totalDays}일</div>
+        </div>
+        <div class="card">
+          <div class="c-lbl">목표 달성률</div>
+          <div class="c-val ${onTrack?'':'r'}">${pct.toFixed(1)}%</div>
+          <div class="c-tag ${onTrack?'g':'r'}">${onTrack?'정상':'부진'}</div>
+          <div class="prog">
+            <div class="prog-bar" style="width:${Math.min(pct,100)}%;background:${onTrack?'#2563eb':'#ef4444'};"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="c-lbl">일평균 매출 (실적)</div>
+          <div class="c-val">${f(dailyAvg)}</div>
+          <div class="c-sub">목표 ${f(targetDay)}/일</div>
         </div>
       </div>
     </div>
 
-    <!-- 발주 예산 여유 -->
-    <div class="section">
-      <div class="section-title">발주 예산 여유</div>
-      <div class="kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">기준 발주예산</div>
-          <div class="kpi-value">${fmtLabel(budget)}만</div>
-          <div class="kpi-sub">확정 집행 가능</div>
+    <div class="sec">
+      <div class="sec-lbl">발주 예산 여유</div>
+      <div class="kpi4">
+        <div class="card">
+          <div class="c-lbl">기준 발주예산</div>
+          <div class="c-val">${f(budget)}</div>
+          <div class="c-sub">확정 집행 가능</div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-label">추가 가용 발주비</div>
-          <div class="kpi-value ${remainBudget === 0 ? 'danger' : ''}">${remainBudget === 0 ? '0원' : fmtLabel(remainBudget)+'만'}</div>
-          <div class="kpi-status danger">${remainBudget === 0 ? '긴축 필요' : '여유 있음'}</div>
+        <div class="card">
+          <div class="c-lbl">추가 가용 발주비</div>
+          <div class="c-val r">0원</div>
+          <div class="c-tag r">긴축 필요</div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-label">월말 예상 매출</div>
-          <div class="kpi-value danger">${fmtLabel(projectedSales)}만</div>
-          <div class="kpi-sub">목표 대비 ${projectedSales >= targetSales ? '+' : '-'}${fmtLabel(Math.abs(projectedSales - targetSales))}만</div>
+        <div class="card">
+          <div class="c-lbl">월말 예상 매출</div>
+          <div class="c-val r">${f(projected)}</div>
+          <div class="c-sub">목표 대비 ${projected>=targetSales?'+':'-'}${f(Math.abs(projected-targetSales))}</div>
         </div>
-        <div class="kpi-card">
-          <div class="kpi-label">예산 달성률 기반 조정</div>
-          <div class="kpi-value danger">${fmtLabel(adjustedBudget)}만</div>
-          <div class="kpi-status danger">조정 필요</div>
+        <div class="card">
+          <div class="c-lbl">예산 달성률 기반 조정</div>
+          <div class="c-val r">${f(budgetAdj)}</div>
+          <div class="c-tag r">조정 필요</div>
         </div>
       </div>
     </div>
 
-    <!-- 알림 -->
-    ${alertRed  ? `<div class="alert danger">${alertRed}</div>`  : ''}
-    ${alertBlue ? `<div class="alert info">${alertBlue}</div>` : ''}
+    ${txtRed  ? `<div class="alert r">${txtRed}</div>`  : ''}
+    ${txtBlue ? `<div class="alert b">${txtBlue}</div>` : ''}
 
-    <!-- 주력 제품 일평균 판매수량 -->
-    <div class="section">
-      <div class="section-title">주력 제품 일평균 판매수량</div>
-      <div class="product-card">
-        ${products.map(p => {
-          const ratio = p.actual / p.target;
-          const isOk     = ratio >= 1.0;
-          const isDanger = ratio < 0.55;
-          const pct      = Math.min(Math.round(ratio * 100), 100);
-          const badge = isDanger ? '<span class="badge danger">급감</span>'
-                      : isOk    ? '<span class="badge ok">정상</span>'
-                      :           '<span class="badge warn">부진</span>';
-          return `
-          <div class="product-row">
-            <div class="product-name">${p.name}</div>
-            <div style="flex:1; min-width:0;">
-              <div style="height:8px; background:#eee; border-radius:4px; overflow:hidden;">
-                <div style="height:100%; width:${pct}%; border-radius:4px; background:${isOk ? '#2563eb' : '#f59e0b'}; transition:width 0.7s;"></div>
-              </div>
-            </div>
-            <div class="product-qty">${p.actual}<span>/${p.target}</span></div>
-            ${badge}
-          </div>`;
-        }).join('')}
-      </div>
+    <div class="sec">
+      <div class="sec-lbl">주력 제품 일평균 판매수량</div>
+      <div class="prod-card">${prodHTML}</div>
     </div>
 
-    <!-- 추가 지표 -->
-    <div class="section">
-      <div class="section-title">추가 지표</div>
-      <div class="bottom-grid">
-        <div class="bottom-card">
-          <div class="bottom-label">목표 달성에 필요한 잔여 일매출</div>
-          <div class="bottom-value">${fmtLabel(neededDaily)}만</div>
-          <div class="bottom-sub">잔여 ${remainDays}일</div>
+    <div class="sec">
+      <div class="sec-lbl">추가 지표</div>
+      <div class="bot2">
+        <div class="bot-card">
+          <div class="bot-lbl">목표 달성에 필요한 잔여 일매출</div>
+          <div class="bot-val">${f(needDaily)}</div>
+          <div class="bot-sub">잔여 ${remain}일</div>
         </div>
-        <div class="bottom-card">
-          <div class="bottom-label">발주예산 소진율</div>
-          <div class="bottom-value">${budgetRate}%</div>
-          <div class="bottom-sub">집행 ${fmtLabel(usedBudget)}만 / 남은 ${fmtLabel(remainBudget)}만</div>
+        <div class="bot-card">
+          <div class="bot-lbl">발주예산 소진율</div>
+          <div class="bot-val">100.0%</div>
+          <div class="bot-sub">집행 ${f(budget)} / 남은 0만</div>
         </div>
       </div>
     </div>
   `;
 }
 
-function switchTab(name, el) {
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
-  el.classList.add("active");
-  document.getElementById(`tab-${name}`).classList.add("active");
-}
-
-// 초기 로드
-loadData();
+load();
 </script>
 </body>
 </html>
