@@ -121,7 +121,7 @@
       <p>• <code>네이버목표</code> — 네이버 목표 일매출</p>
       <p>• <code>현재일매출_자사몰</code> — 자사몰 현재 평균일매출</p>
       <p>• <code>현재일매출_네이버</code> — 네이버 현재 평균일매출</p>
-      <p>• <code>발주예산</code> — 기준 발주예산</p>
+      <p>• <code>누적발주지출</code> — 현재 누적 발주 지출액 (만원, 매일 업데이트)</p>
       <p>• <code>경과일</code> / <code>총일수</code></p>
       <br>
       <p>총 플랫폼 일평균은 <strong>매출 시트의 전체 누적 ÷ 경과일</strong>로 자동 계산됩니다.</p>
@@ -213,7 +213,7 @@ async function load() {
       targetMain,
       currentMain,
       allDailyAvg,
-      budget:     n(cfg["발주예산"] ?? 3500),
+      spentBudget: n(cfg["누적발주지출"] ?? 0),   // 현재 누적 발주 지출액
       elapsedDays,
       totalDays,
       totalSales,
@@ -233,7 +233,7 @@ async function load() {
   }
 }
 
-function render({ targetMain, currentMain, allDailyAvg, budget, elapsedDays, totalDays, totalSales, products }) {
+function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays, totalDays, totalSales, products }) {
 
   /* 달성률: 현재 자사몰+네이버 일매출 ÷ 목표 */
   const pct = targetMain > 0 ? (currentMain / targetMain * 100) : 0;
@@ -254,7 +254,12 @@ function render({ targetMain, currentMain, allDailyAvg, budget, elapsedDays, tot
   /* 월말 예상 (전체 누적 기준) */
   const targetMonthly = targetMain * totalDays;
   const projected     = totalSales + allDailyAvg * remain;
-  const budgetAdj     = targetMonthly > 0 ? Math.round(projected * budget / targetMonthly) : 0;
+
+  /* 예산 달성률 기반 조정 발주비 = 월말 예상 매출 × 20% */
+  const adjBudget   = Math.round(projected * 0.20);
+
+  /* 추가 가용 발주비 = 조정 발주비 - 누적 지출액 (음수면 초과) */
+  const extraBudget = adjBudget - spentBudget;
 
   /* 잔여 일매출 목표 (자사몰+네이버 기준) */
   const needDaily = remain > 0 && currentMain < targetMain
@@ -336,26 +341,35 @@ function render({ targetMain, currentMain, allDailyAvg, budget, elapsedDays, tot
     <div class="sec">
       <div class="sec-lbl">발주 예산 여유</div>
       <div class="kpi4">
+
+        <!-- 카드1: 현재 누적 발주 지출액 -->
         <div class="card">
-          <div class="c-lbl">기준 발주예산</div>
-          <div class="c-val">${f(budget)}</div>
-          <div class="c-sub">확정 집행 가능</div>
+          <div class="c-lbl">현재 누적 발주 지출액</div>
+          <div class="c-val">${f(spentBudget)}</div>
+          <div class="c-sub">이번 달 누적 집행</div>
         </div>
+
+        <!-- 카드2: 예산 달성률 기반 조정 발주비 = 월말 예상 매출 × 20% -->
         <div class="card">
-          <div class="c-lbl">추가 가용 발주비</div>
-          <div class="c-val r">0원</div>
-          <div class="c-tag r">긴축 필요</div>
+          <div class="c-lbl">예산 달성률 기반<br>조정 발주비</div>
+          <div class="c-val">${f(adjBudget)}</div>
+          <div class="c-sub">월말 예상 매출 × 20%</div>
         </div>
+
+        <!-- 카드3: 월말 예상 매출 -->
         <div class="card">
           <div class="c-lbl">월말 예상 매출</div>
-          <div class="c-val r">${f(projected)}</div>
+          <div class="c-val ${projected >= targetMonthly ? '' : 'r'}">${f(projected)}</div>
           <div class="c-sub">목표 대비 ${projected >= targetMonthly ? '+' : '-'}${f(Math.abs(projected - targetMonthly))}</div>
         </div>
+
+        <!-- 카드4: 추가 가용 발주비 = 조정 발주비 - 누적 지출액 -->
         <div class="card">
-          <div class="c-lbl">예산 달성률 기반 조정</div>
-          <div class="c-val r">${f(budgetAdj)}</div>
-          <div class="c-tag r">조정 필요</div>
+          <div class="c-lbl">추가 가용 발주비</div>
+          <div class="c-val ${extraBudget >= 0 ? '' : 'r'}">${extraBudget >= 0 ? f(extraBudget) : '-' + f(Math.abs(extraBudget))}</div>
+          <div class="c-tag ${extraBudget >= 0 ? 'g' : 'r'}">${extraBudget >= 0 ? '여유 있음' : '예산 초과'}</div>
         </div>
+
       </div>
     </div>
 
@@ -380,7 +394,7 @@ function render({ targetMain, currentMain, allDailyAvg, budget, elapsedDays, tot
         <div class="bot-card">
           <div class="bot-lbl">발주예산 소진율</div>
           <div class="bot-val">100.0%</div>
-          <div class="bot-sub">집행 ${f(budget)} / 남은 0만</div>
+          <div class="bot-sub">누적지출 ${f(spentBudget)} / 조정발주비 ${f(adjBudget)}</div>
         </div>
       </div>
     </div>
