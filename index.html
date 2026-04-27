@@ -252,7 +252,7 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
   const remain  = totalDays - elapsedDays;
 
   /* 월말 예상 (전체 누적 기준) */
-  const targetMonthly = targetMain * totalDays;
+  const targetMonthly = 20000;  // 고정 목표: 월 2억원
   const projected     = totalSales + allDailyAvg * remain;
 
   /* 예산 달성률 기반 조정 발주비 = 월말 예상 매출 × 18% */
@@ -332,9 +332,9 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
         </div>
 
         <div class="card">
-          <div class="c-lbl">총 플랫폼<br>일평균 매출 (실적)</div>
-          <div class="c-val">${f(allDailyAvg)}</div>
-          <div class="c-sub">전체 누적 ÷ ${elapsedDays}일</div>
+          <div class="c-lbl">전체 플랫폼<br>누적 예상 매출</div>
+          <div class="c-val">${f(projected)}</div>
+          <div class="c-sub">목표 대비 ${projected >= targetMonthly ? '+' : '-'}${f(Math.abs(projected - targetMonthly))}</div>
         </div>
 
       </div>
