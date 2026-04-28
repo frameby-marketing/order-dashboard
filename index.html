@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: 'Noto Sans KR', sans-serif;
       background: #f4f4f0;
@@ -15,49 +14,40 @@
       min-height: 100vh;
       padding: 32px 24px;
     }
-
     .wrap { max-width: 960px; margin: 0 auto; }
-
     .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
     .header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; color: #1a1a1a; }
     .header-r { display: flex; align-items: center; gap: 10px; }
     .date-txt { font-size: 13px; color: #6b6b6b; }
     .btn-refresh { background: #fff; border: 1px solid #ddd; border-radius: 50px; padding: 5px 13px; font-size: 12px; font-family: inherit; cursor: pointer; color: #555; transition: all 0.15s; }
     .btn-refresh:hover { border-color: #999; color: #111; }
-
     .tabs { display: flex; gap: 8px; margin-bottom: 26px; }
     .tab { padding: 7px 18px; border: 1.5px solid #e0e0da; border-radius: 50px; font-size: 13px; font-weight: 500; cursor: pointer; background: #fff; color: #6b6b6b; font-family: inherit; transition: all 0.15s; }
     .tab:hover { border-color: #aaa; color: #1a1a1a; }
     .tab.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; font-weight: 700; }
     .panel { display: none; }
     .panel.on { display: block; }
-
     .sec { margin-bottom: 22px; }
     .sec-lbl { font-size: 13px; color: #6b6b6b; font-weight: 500; margin-bottom: 10px; }
-
     .kpi4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
     @media (max-width:680px) { .kpi4 { grid-template-columns: repeat(2,1fr); } }
-
     .card { background: #fff; border: 1px solid #e8e8e4; border-radius: 12px; padding: 18px 16px 14px; }
     .c-lbl { font-size: 11px; color: #6b6b6b; font-weight: 500; margin-bottom: 6px; line-height: 1.5; }
     .c-val { font-size: 26px; font-weight: 700; letter-spacing: -0.7px; line-height: 1.1; color: #1a1a1a; }
     .c-val.r { color: #ef4444; }
     .c-sub { font-size: 11px; color: #9b9b9b; margin-top: 4px; }
     .c-tag { font-size: 12px; font-weight: 600; margin-top: 3px; }
-    .c-tag.r  { color: #ef4444; }   /* 위험  ~79%   */
-    .c-tag.w  { color: #f59e0b; }   /* 경고  80~89% */
-    .c-tag.d  { color: #3b82f6; }   /* 방어  90~99% */
-    .c-tag.g  { color: #16a34a; }   /* 달성 100~109% */
-    .c-tag.s  { color: #8b5cf6; }   /* 초과 110~129% */
-    .c-tag.ex { color: #ec4899; }   /* 우수  130%+  */
-
+    .c-tag.r  { color: #ef4444; }
+    .c-tag.w  { color: #f59e0b; }
+    .c-tag.d  { color: #3b82f6; }
+    .c-tag.g  { color: #16a34a; }
+    .c-tag.s  { color: #8b5cf6; }
+    .c-tag.ex { color: #ec4899; }
     .prog { margin-top: 9px; height: 7px; background: #e8e8e4; border-radius: 4px; overflow: hidden; }
     .prog-bar { height: 100%; border-radius: 4px; transition: width .7s cubic-bezier(.4,0,.2,1); }
-
     .alert { border-radius: 8px; padding: 12px 15px; font-size: 13px; font-weight: 500; margin-bottom: 10px; line-height: 1.55; border-left: 3px solid; }
     .alert.r { background: #fef2f2; border-color: #ef4444; color: #dc2626; }
     .alert.b { background: #eff6ff; border-color: #2563eb; color: #2563eb; }
-
     .prod-card { background: #fff; border: 1px solid #e8e8e4; border-radius: 12px; overflow: hidden; }
     .prod-row { display: flex; align-items: center; padding: 13px 20px; border-bottom: 1px solid #f0f0ec; gap: 14px; }
     .prod-row:last-child { border-bottom: none; }
@@ -72,15 +62,49 @@
     .badge.g  { background: #f0fdf4; color: #16a34a; }
     .badge.am { background: #fffbeb; color: #d97706; }
 
+    /* 재고현황 카드 */
+    .stock-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+    @media (max-width:680px) { .stock-grid { grid-template-columns: repeat(2,1fr); } }
+    .stock-card {
+      background: #fff;
+      border: 1px solid #e8e8e4;
+      border-radius: 12px;
+      padding: 16px 14px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stock-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent, #e8e8e4);
+    }
+    .stock-name { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; line-height: 1.3; }
+    .stock-dday { font-size: 28px; font-weight: 700; letter-spacing: -0.7px; line-height: 1; color: #1a1a1a; }
+    .stock-dday.r { color: #ef4444; }
+    .stock-dday.w { color: #f59e0b; }
+    .stock-dday.d { color: #3b82f6; }
+    .stock-dday.g { color: #16a34a; }
+    .stock-dday.gray { color: #9b9b9b; font-size: 18px; }
+    .stock-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 50px; margin-top: 6px; }
+    .stock-tag.r  { background: #fef2f2; color: #ef4444; }
+    .stock-tag.w  { background: #fffbeb; color: #d97706; }
+    .stock-tag.d  { background: #eff6ff; color: #2563eb; }
+    .stock-tag.g  { background: #f0fdf4; color: #16a34a; }
+    .stock-tag.gray { background: #f0f0ec; color: #9b9b9b; }
+    .stock-divider { border-top: 1px dashed #e8e8e4; margin: 10px 0 8px; }
+    .stock-restock { font-size: 11px; color: #6b6b6b; line-height: 1.5; }
+    .stock-restock strong { color: #1a1a1a; font-weight: 600; }
+    .stock-restock .none { color: #b8b8b4; }
+
     .bot2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .bot-card { background: #fff; border: 1px solid #e8e8e4; border-radius: 12px; padding: 18px 16px; }
     .bot-lbl { font-size: 12px; color: #6b6b6b; margin-bottom: 5px; line-height: 1.5; }
     .bot-val { font-size: 26px; font-weight: 700; letter-spacing: -0.7px; color: #1a1a1a; }
     .bot-sub { font-size: 11px; color: #9b9b9b; margin-top: 4px; }
-
     .loading { text-align: center; padding: 60px; color: #6b6b6b; font-size: 14px; }
     .err-box { background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px; padding: 13px 15px; color: #dc2626; font-size: 13px; margin-bottom: 14px; line-height: 1.7; }
-
     .info-card { background: #fff; border: 1px solid #e8e8e4; border-radius: 12px; padding: 24px; font-size: 14px; color: #555; line-height: 1.85; }
     .info-card h3 { font-size: 15px; color: #1a1a1a; margin-bottom: 12px; }
     .info-card strong { color: #333; }
@@ -91,7 +115,6 @@
 </head>
 <body>
 <div class="wrap">
-
   <div class="header">
     <h1>발주 관리 대시보드</h1>
     <div class="header-r">
@@ -99,19 +122,15 @@
       <button class="btn-refresh" onclick="load()">↻ 새로고침</button>
     </div>
   </div>
-
   <div class="tabs">
     <div class="tab active" onclick="tab('current',this)">현황</div>
     <div class="tab" onclick="tab('input',this)">데이터 입력</div>
     <div class="tab" onclick="tab('trend',this)">추이</div>
   </div>
-
   <div id="err"></div>
-
   <div id="p-current" class="panel on">
     <div id="content"><div class="loading">불러오는 중...</div></div>
   </div>
-
   <div id="p-input" class="panel">
     <div class="info-card">
       <h3>📋 Google Sheets 설정 시트 항목</h3>
@@ -125,27 +144,42 @@
       <p>• <code>경과일</code> / <code>총일수</code></p>
       <br>
       <p>총 플랫폼 일평균은 <strong>매출 시트의 전체 누적 ÷ 경과일</strong>로 자동 계산됩니다.</p>
+      <br>
+      <h3>📦 재고현황 시트 (신규)</h3>
+      <p>새 시트 이름: <code>재고</code> (또는 원하는 이름)</p>
+      <p>1행 헤더: <code>제품명 | 품절예정일 | 재입고수량 | 재입고예정일</code></p>
+      <p>• A열: 제품명 (킥프레임, PH 실버 등 — 8개)</p>
+      <p>• B열: 품절예정일 (<code>2026-05-15</code> 형식)</p>
+      <p>• C열: 재입고수량 (숫자, 비어있어도 됨)</p>
+      <p>• D열: 재입고예정일 (<code>2026-05-20</code> 형식, 비어있어도 됨)</p>
       <a class="btn-sheet" id="sheet-link" href="#" target="_blank">📊 Google Sheets 열기</a>
     </div>
   </div>
-
   <div id="p-trend" class="panel">
     <div class="info-card" style="text-align:center; padding: 48px;">
       📈 추이 기능은 준비 중입니다.
     </div>
   </div>
-
 </div>
 <script>
 /* ===================================================
    ⚙️ 설정
    =================================================== */
-const SHEET_ID   = "1p-ko7c4--yUwYOYE2fL8X6Z1U3O1lWoJ36AZuBanGmQ";
-const GID_CONFIG = "0";          // 설정 시트 gid
-const GID_PROD   = "408610443";  // 제품 시트 gid
+const SHEET_ID    = "1p-ko7c4--yUwYOYE2fL8X6Z1U3O1lWoJ36AZuBanGmQ";
+const GID_CONFIG  = "0";          // 설정 시트 gid
+const GID_PROD    = "408610443";  // 제품 시트 gid
 const GID_SALES   = "202369795";  // 매출 시트 gid
 const GID_COUPANG = "1570889941"; // 쿠팡납품 시트 gid
+const GID_STOCK   = "여기에_입력"; // ⚠️ 재고 시트 gid (시트 만든 뒤 URL #gid= 뒤 숫자 입력)
 /* =================================================== */
+
+/* 8개 제품 고정 순서 */
+const STOCK_PRODUCTS = [
+  "킥프레임",
+  "PH 실버", "PH 블랙",
+  "DW프로 실버", "DW프로 블랙",
+  "DW플러스 실버", "DW플러스 블랙", "DW플러스 그린"
+];
 
 const _d = new Date();
 document.getElementById("date-lbl").textContent =
@@ -159,35 +193,62 @@ function f(v) {
   if (n >= 1000)  return `${Math.round(n/1000)}천만`;
   return `${n.toLocaleString()}만`;
 }
-
 function tab(name, el) {
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
   document.querySelectorAll(".panel").forEach(p => p.classList.remove("on"));
   el.classList.add("active");
   document.getElementById(`p-${name}`).classList.add("on");
 }
-
 function fetchCSV(gid) {
   const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${gid}`;
   return fetch(url).then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.text(); });
 }
-
 function csv(raw) {
   return raw.trim().split("\n").map(r => r.split(",").map(c => c.trim().replace(/^"|"$/g,"")));
 }
-
 function n(s) { return parseFloat(String(s).replace(/[^0-9.-]/g,""))||0; }
+
+/* 날짜 문자열 → D-day (오늘 기준 남은 일수) */
+function calcDday(dateStr) {
+  if (!dateStr) return null;
+  const target = new Date(dateStr);
+  if (isNaN(target.getTime())) return null;
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  target.setHours(0,0,0,0);
+  return Math.ceil((target - today) / (1000*60*60*24));
+}
+/* 날짜 → "M월 D일" 표시 */
+function fmtDate(dateStr) {
+  if (!dateStr) return null;
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return null;
+  return `${d.getMonth()+1}월 ${d.getDate()}일`;
+}
+/* D-day 등급 */
+function ddayInfo(d) {
+  if (d === null) return { cls: 'gray', label: '미입력', accent: '#e8e8e4' };
+  if (d < 10)     return { cls: 'r',    label: '초임박', accent: '#ef4444' };
+  if (d < 20)     return { cls: 'w',    label: '임박',   accent: '#f59e0b' };
+  if (d < 30)     return { cls: 'd',    label: '주의',   accent: '#3b82f6' };
+  if (d < 40)     return { cls: 'g',    label: '관심',   accent: '#16a34a' };
+  return                 { cls: 'gray', label: '안전',   accent: '#d4d4d0' };
+}
 
 async function load() {
   document.getElementById("content").innerHTML = `<div class="loading">데이터를 불러오는 중...</div>`;
   document.getElementById("err").innerHTML = "";
-
   try {
-    const [cfgR, prodR, salesR, coupangR] = await Promise.all([
-      fetchCSV(GID_CONFIG), fetchCSV(GID_PROD), fetchCSV(GID_SALES), fetchCSV(GID_COUPANG)
+    /* 재고 시트는 GID 미설정 시 스킵 */
+    const stockPromise = (GID_STOCK && GID_STOCK !== "여기에_입력")
+      ? fetchCSV(GID_STOCK).catch(() => "")
+      : Promise.resolve("");
+
+    const [cfgR, prodR, salesR, coupangR, stockR] = await Promise.all([
+      fetchCSV(GID_CONFIG), fetchCSV(GID_PROD), fetchCSV(GID_SALES), fetchCSV(GID_COUPANG), stockPromise
     ]);
 
-    /* 설정 시트: A열=키, B열=값 */
+    /* 설정 시트 */
     const cfg = {};
     csv(cfgR).slice(1).forEach(r => { if(r[0]) cfg[r[0]] = r[1]; });
 
@@ -195,11 +256,11 @@ async function load() {
     const products = csv(prodR).slice(1).filter(r=>r[0])
       .map(r => ({ name:r[0], actual:n(r[1]), target:n(r[2]) }));
 
-    /* 매출 시트: 마지막 행 B열 = 전체 누적매출 */
+    /* 매출 시트 */
     const salesRows  = csv(salesR).slice(1).filter(r=>r[0]);
     const totalSales = n(salesRows.at(-1)?.[1] ?? 0);
 
-    // 쿠팡납품 시트: A=주차, B=기간, C=발주요청, D=입고수량
+    /* 쿠팡 납품 */
     const coupangRows = csv(coupangR).slice(1).filter(r=>r[0]);
     const coupangData = coupangRows.map(r => ({
       week:      r[0],
@@ -208,14 +269,31 @@ async function load() {
       delivered: n(r[3]),
       rate:      n(r[2]) > 0 ? (n(r[3]) / n(r[2]) * 100) : 0,
     }));
+
+    /* 재고 시트 파싱: A=제품명, B=품절예정일, C=재입고수량, D=재입고예정일 */
+    const stockMap = {};
+    if (stockR) {
+      csv(stockR).slice(1).filter(r=>r[0]).forEach(r => {
+        stockMap[r[0].trim()] = {
+          stockoutDate: r[1] || "",
+          restockQty:   r[2] ? n(r[2]) : null,
+          restockDate:  r[3] || "",
+        };
+      });
+    }
+    const stockData = STOCK_PRODUCTS.map(name => {
+      const s = stockMap[name] || {};
+      return {
+        name,
+        dday:         calcDday(s.stockoutDate),
+        restockQty:   s.restockQty ?? null,
+        restockDate:  s.restockDate || "",
+      };
+    });
+
     const elapsedDays = n(cfg["경과일"] ?? 24);
     const totalDays   = n(cfg["총일수"] ?? 30);
 
-    /* ── 핵심 계산 ──
-       자사몰+네이버 목표 = 자사몰목표 + 네이버목표 (각각 따로 입력)
-       자사몰+네이버 현재 = 현재일매출_자사몰 + 현재일매출_네이버
-       총 플랫폼 일평균   = 전체 누적매출 ÷ 경과일
-    */
     const targetMain  = n(cfg["자사몰목표"] ?? 0) + n(cfg["네이버목표"] ?? 0);
     const currentMain = n(cfg["현재일매출_자사몰"] ?? 0) + n(cfg["현재일매출_네이버"] ?? 0);
     const allDailyAvg = elapsedDays > 0 ? Math.round(totalSales / elapsedDays) : 0;
@@ -225,13 +303,13 @@ async function load() {
       currentMain,
       allDailyAvg,
       spentBudget: n(cfg["누적발주지출"] ?? 0),
-      coupangData,   // 현재 누적 발주 지출액
+      coupangData,
       elapsedDays,
       totalDays,
       totalSales,
       products,
+      stockData,
     });
-
   } catch(e) {
     document.getElementById("err").innerHTML =
       `<div class="err-box">
@@ -245,12 +323,8 @@ async function load() {
   }
 }
 
-function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays, totalDays, totalSales, products, coupangData }) {
-
-  /* 달성률: 현재 자사몰+네이버 일매출 ÷ 목표 */
+function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays, totalDays, totalSales, products, coupangData, stockData }) {
   const pct = targetMain > 0 ? (currentMain / targetMain * 100) : 0;
-
-  /* 등급 판정 */
   function grade(p) {
     if (p >= 130) return { cls: 'ex', label: '우수 성과',   barColor: '#ec4899' };
     if (p >= 110) return { cls: 's',  label: '초과 성과',   barColor: '#8b5cf6' };
@@ -260,28 +334,16 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
     return        { cls: 'r',  label: '위험',        barColor: '#ef4444' };
   }
   const G = grade(pct);
-  const onTrack = pct >= 80;  // 경고 이상이면 알림 안 띄움
   const remain  = totalDays - elapsedDays;
-
-  /* 월말 예상 (전체 누적 기준) */
-  const targetMonthly = 20000;  // 고정 목표: 월 2억원
+  const targetMonthly = 20000;
   const projected     = totalSales + allDailyAvg * remain;
-
-  /* 예산 달성률 기반 조정 발주비 = 월말 예상 매출 × 18% */
   const adjBudget   = Math.round(projected * 0.18);
-
-  /* 발주비 비중 = 누적 지출액 ÷ 월말 예상 매출 × 100 */
   const spendRatio  = projected > 0 ? (spentBudget / projected * 100) : 0;
-
-  /* 추가 가용 발주비 = 조정 발주비 - 누적 지출액 (음수면 초과) */
   const extraBudget = adjBudget - spentBudget;
-
-  /* 잔여 일매출 목표 (자사몰+네이버 기준) */
   const needDaily = remain > 0 && currentMain < targetMain
     ? Math.round((targetMain * totalDays - currentMain * elapsedDays) / remain)
     : targetMain;
 
-  /* 알림 */
   const txtRed = (pct < 80 && currentMain > 0)
     ? `[위험] 자사몰+네이버 달성률 ${pct.toFixed(1)}% — 목표 달성을 위한 잔여 일 매출이 평소 대비 ${Math.round(needDaily / currentMain * 100)}% 이상 필요합니다. 발주 조정 협의가 필요합니다.`
     : (pct < 90 && currentMain > 0)
@@ -315,25 +377,42 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
       </div>`;
   }).join('');
 
-  document.getElementById("content").innerHTML = `
+  /* 재고현황 카드 */
+  const stockHTML = stockData.map(s => {
+    const info = ddayInfo(s.dday);
+    const ddayLabel = s.dday === null
+      ? '—'
+      : s.dday < 0
+        ? `D+${Math.abs(s.dday)}`
+        : `D-${s.dday}`;
+    const restockTxt = (s.restockQty || s.restockDate)
+      ? `<strong>${s.restockQty ? s.restockQty.toLocaleString()+'개' : '미정'}</strong> 재입고${s.restockDate ? ` · ${fmtDate(s.restockDate)}` : ''}`
+      : `<span class="none">재입고 정보 없음</span>`;
+    return `
+      <div class="stock-card" style="--accent:${info.accent};">
+        <div class="stock-name">${s.name}</div>
+        <div class="stock-dday ${info.cls}">${ddayLabel}</div>
+        <div><span class="stock-tag ${info.cls}">${info.label}</span></div>
+        <div class="stock-divider"></div>
+        <div class="stock-restock">${restockTxt}</div>
+      </div>`;
+  }).join('');
 
+  document.getElementById("content").innerHTML = `
     <!-- 일매출 달성 현황 -->
     <div class="sec">
       <div class="sec-lbl">일매출 달성 현황</div>
       <div class="kpi4">
-
         <div class="card">
           <div class="c-lbl">자사몰+네이버<br>목표 평균일매출</div>
           <div class="c-val">${f(targetMain)}</div>
           <div class="c-sub">자사몰+네이버 합산</div>
         </div>
-
         <div class="card">
           <div class="c-lbl">현재 자사몰+네이버<br>평균일매출</div>
           <div class="c-val">${f(currentMain)}</div>
           <div class="c-sub">${elapsedDays}일 경과 / ${totalDays}일</div>
         </div>
-
         <div class="card">
           <div class="c-lbl">목표 달성률</div>
           <div class="c-val ${G.cls === 'r' ? 'r' : ''}">${pct.toFixed(1)}%</div>
@@ -342,13 +421,11 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
             <div class="prog-bar" style="width:${Math.min(pct,130)/1.3}%;background:${G.barColor};"></div>
           </div>
         </div>
-
         <div class="card">
           <div class="c-lbl">전체 플랫폼<br>누적 예상 매출</div>
           <div class="c-val">${f(projected)}</div>
           <div class="c-sub">목표 대비 ${projected >= targetMonthly ? '+' : '-'}${f(Math.abs(projected - targetMonthly))}</div>
         </div>
-
       </div>
     </div>
 
@@ -356,36 +433,27 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
     <div class="sec">
       <div class="sec-lbl">발주 예산 여유</div>
       <div class="kpi4">
-
-        <!-- 카드1: 현재 누적 발주 지출액 -->
         <div class="card">
           <div class="c-lbl">현재 누적 발주 지출액</div>
           <div class="c-val">${f(spentBudget)}</div>
           <div class="c-sub">이번 달 누적 집행</div>
         </div>
-
-        <!-- 카드2: 예산 달성률 기반 조정 발주비 = 월말 예상 매출 × 18% -->
         <div class="card">
           <div class="c-lbl">예산 달성률 기반<br>조정 발주비</div>
           <div class="c-val">${f(adjBudget)}</div>
           <div class="c-sub">월말 예상 매출 × 18%</div>
         </div>
-
-        <!-- 카드3: 현재 기준 발주비 비중 -->
         <div class="card">
           <div class="c-lbl">현재 기준 발주비 비중</div>
           <div class="c-val ${spendRatio > 18 ? 'r' : ''}">${spendRatio.toFixed(1)}%</div>
           <div class="c-tag ${spendRatio > 18 ? 'r' : 'g'}">${spendRatio > 18 ? '위험 (18% 초과)' : '안전 (18% 이하)'}</div>
           <div class="c-sub">누적지출 ÷ 월말 예상</div>
         </div>
-
-        <!-- 카드4: 추가 가용 발주비 = 조정 발주비 - 누적 지출액 -->
         <div class="card">
           <div class="c-lbl">추가 가용 발주비</div>
           <div class="c-val ${extraBudget >= 0 ? '' : 'r'}">${extraBudget >= 0 ? f(extraBudget) : '-' + f(Math.abs(extraBudget))}</div>
           <div class="c-tag ${extraBudget >= 0 ? 'g' : 'r'}">${extraBudget >= 0 ? '여유 있음' : '예산 초과'}</div>
         </div>
-
       </div>
     </div>
 
@@ -396,6 +464,12 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
     <div class="sec">
       <div class="sec-lbl">주력 제품 일평균 판매수량</div>
       <div class="prod-card">${prodHTML}</div>
+    </div>
+
+    <!-- 주력 제품 재고현황 (NEW) -->
+    <div class="sec">
+      <div class="sec-lbl">주력 제품 재고현황 (품절 D-day)</div>
+      <div class="stock-grid">${stockHTML}</div>
     </div>
 
     <!-- 추가 지표 -->
@@ -419,13 +493,11 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
     <div class="sec">
       <div class="sec-lbl">쿠팡 주차별 발주대비 납품율 (노트북거치대)</div>
       <div class="card" style="padding:0; overflow:hidden;">
-
-        <!-- 차트 영역 -->
         <div style="padding:20px 20px 0;">
           <div style="display:flex; align-items:flex-end; gap:6px; height:120px; border-bottom:1px solid #e8e8e4;">
             ${coupangData.map((d,i) => {
               const pct = d.rate;
-              const h   = Math.max(4, Math.round(pct * 1.1));  // max ~120px at 100%+
+              const h   = Math.max(4, Math.round(pct * 1.1));
               const col = pct >= 70 ? '#16a34a'
                         : pct >= 50 ? '#2563eb'
                         : pct >= 30 ? '#f59e0b'
@@ -437,13 +509,10 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
               </div>`;
             }).join('')}
           </div>
-          <!-- x축 라벨 -->
           <div style="display:flex; gap:6px; margin-top:4px;">
             ${coupangData.map(d => `<div style="flex:1; font-size:8px; color:#9b9b9b; text-align:center; line-height:1.3;">${d.week}</div>`).join('')}
           </div>
         </div>
-
-        <!-- 범례 -->
         <div style="display:flex; gap:16px; padding:10px 20px 14px; flex-wrap:wrap;">
           ${[['#16a34a','70%+'],['#2563eb','50~69%'],['#f59e0b','30~49%'],['#ef4444','~29%']].map(([c,l])=>
             `<div style="display:flex;align-items:center;gap:4px;">
@@ -453,8 +522,6 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
           ).join('')}
           <span style="font-size:11px;color:#9b9b9b;margin-left:auto;">□ 최근 주차</span>
         </div>
-
-        <!-- 테이블 -->
         <div style="overflow-x:auto;">
           <table style="width:100%;border-collapse:collapse;font-size:12px;">
             <thead>
@@ -493,7 +560,6 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
                 </tr>`;
               }).join('')}
             </tbody>
-            <!-- 합계 행 -->
             <tfoot>
               <tr style="background:#f0f0ec;border-top:2px solid #e0e0da;">
                 <td colspan="2" style="padding:9px 14px;font-weight:700;color:#1a1a1a;">전체 합계</td>
@@ -510,9 +576,7 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
       </div>
     </div>
   `;
-
 }
-
 load();
 </script>
 </body>
