@@ -170,7 +170,7 @@ const GID_CONFIG  = "0";          // 설정 시트 gid
 const GID_PROD    = "408610443";  // 제품 시트 gid
 const GID_SALES   = "202369795";  // 매출 시트 gid
 const GID_COUPANG = "1570889941"; // 쿠팡납품 시트 gid
-const GID_STOCK   = "1079489460"; // ⚠️ 재고 시트 gid (시트 만든 뒤 URL #gid= 뒤 숫자 입력)
+const GID_STOCK   = "1079489460"; // 재고 시트 gid
 /* =================================================== */
 
 /* 8개 제품 고정 순서 */
@@ -239,7 +239,6 @@ async function load() {
   document.getElementById("content").innerHTML = `<div class="loading">데이터를 불러오는 중...</div>`;
   document.getElementById("err").innerHTML = "";
   try {
-    /* 재고 시트는 GID 미설정 시 스킵 */
     const stockPromise = GID_STOCK
       ? fetchCSV(GID_STOCK).catch(() => "")
       : Promise.resolve("");
@@ -429,6 +428,23 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
       </div>
     </div>
 
+    <!-- 추가 지표 (일매출 달성 현황 바로 아래로 이동) -->
+    <div class="sec">
+      <div class="sec-lbl">추가 지표</div>
+      <div class="bot2">
+        <div class="bot-card">
+          <div class="bot-lbl">목표 달성에 필요한<br>잔여 일매출 (자사몰+네이버)</div>
+          <div class="bot-val">${f(needDaily)}</div>
+          <div class="bot-sub">잔여 ${remain}일</div>
+        </div>
+        <div class="bot-card">
+          <div class="bot-lbl">발주예산 소진율</div>
+          <div class="bot-val">100.0%</div>
+          <div class="bot-sub">누적지출 ${f(spentBudget)} / 조정발주비 ${f(adjBudget)}</div>
+        </div>
+      </div>
+    </div>
+
     <!-- 발주 예산 여유 -->
     <div class="sec">
       <div class="sec-lbl">발주 예산 여유</div>
@@ -466,27 +482,10 @@ function render({ targetMain, currentMain, allDailyAvg, spentBudget, elapsedDays
       <div class="prod-card">${prodHTML}</div>
     </div>
 
-    <!-- 주력 제품 재고현황 (NEW) -->
+    <!-- 주력 제품 재고현황 -->
     <div class="sec">
       <div class="sec-lbl">주력 제품 재고현황 (품절 D-day)</div>
       <div class="stock-grid">${stockHTML}</div>
-    </div>
-
-    <!-- 추가 지표 -->
-    <div class="sec">
-      <div class="sec-lbl">추가 지표</div>
-      <div class="bot2">
-        <div class="bot-card">
-          <div class="bot-lbl">목표 달성에 필요한<br>잔여 일매출 (자사몰+네이버)</div>
-          <div class="bot-val">${f(needDaily)}</div>
-          <div class="bot-sub">잔여 ${remain}일</div>
-        </div>
-        <div class="bot-card">
-          <div class="bot-lbl">발주예산 소진율</div>
-          <div class="bot-val">100.0%</div>
-          <div class="bot-sub">누적지출 ${f(spentBudget)} / 조정발주비 ${f(adjBudget)}</div>
-        </div>
-      </div>
     </div>
 
     <!-- 쿠팡 주차별 납품율 -->
