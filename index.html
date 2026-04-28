@@ -240,7 +240,7 @@ async function load() {
   document.getElementById("err").innerHTML = "";
   try {
     /* 재고 시트는 GID 미설정 시 스킵 */
-    const stockPromise = (GID_STOCK && GID_STOCK !== "여기에_입력")
+    const stockPromise = (GID_STOCK && GID_STOCK !== "1079489460")
       ? fetchCSV(GID_STOCK).catch(() => "")
       : Promise.resolve("");
 
